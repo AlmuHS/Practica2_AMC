@@ -2,6 +2,7 @@
 #define GRAPH_H
 
 #include<vector>
+#include<map>
 #include<set>
 #include<cmath>
 
@@ -19,7 +20,8 @@ class Graph
     private:
         int numNodes;
         int maxNodes;
-        vector<vector<float> > adjacency_matrix;
+        //vector<vector<float> > adjacency_matrix;
+        map<int, map<int,float> > adjacency_matrix;
         vector<int> node_list;
 
     public:

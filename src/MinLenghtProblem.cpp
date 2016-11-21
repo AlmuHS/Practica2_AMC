@@ -9,22 +9,22 @@ void MinLenghtProblem::Generate_graph()
 
     GenGraph GenG;
 
-    cout<<"Node\tpos x\tpos y"<<endl;
+    cout<<"Node\tpos x\t\tpos y"<<endl;
 
     for(int i = 0; i < 20; i+=2)
     {
         n1.n = i;
-        n1.x = cos(rand());
-        n1.y = sqrt(rand())/10000000;
+        n1.x = log(rand());
+        n1.y = sqrt(rand());
 
 
-        cout<<n1.n<<"\t"<<n1.x<<"\t"<<n1.y<<endl;
+        cout<<n1.n<<"\t"<<n1.x<<"\t\t"<<n1.y<<endl;
 
         n2.n = i + 1;
-        n2.x = sin(rand());
-        n2.y = sqrt(rand())/20;
+        n2.x = log10(rand());
+        n2.y = cbrt(rand())/20;
 
-        cout<<n2.n<<"\t"<<n2.x<<"\t"<<n2.y;
+        cout<<n2.n<<"\t"<<n2.x<<"\t\t"<<n2.y<<endl;
 
 
         GenG.add_edge(n1, n2);
