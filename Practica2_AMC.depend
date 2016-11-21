@@ -1,28 +1,18 @@
 # depslib dependency file v1.0
-1479672184 source:/home/almu/Practica2_AMC/main.cpp
-	<iostream>
-	"Graph.h"
+1479690013 source:/home/almu/Practica2_AMC/src/GenGraph.cpp
+	"../include/GenGraph.h"
 
-1479684614 source:/home/almu/Practica2_AMC/src/Graph.cpp
+1479690022 source:/home/almu/Practica2_AMC/src/Graph.cpp
+	"../include/Graph.h"
+
+1479689871 source:/home/almu/Practica2_AMC/main.cpp
+	<iostream>
+
+1479686114 /home/almu/Practica2_AMC/include/GenGraph.h
 	"Graph.h"
 
 1479684494 /home/almu/Practica2_AMC/include/Graph.h
 	<vector>
 	<set>
 	<cmath>
-
-1479686036 source:/home/almu/Practica2_AMC/src/MinLenghtProblem.cpp
-	"MinLenghtProblem.h"
-
-1479685815 /home/almu/Practica2_AMC/include/MinLenghtProblem.h
-	<cmath>
-	<cstdlib>
-	"Graph.h"
-	"GenGraph.h"
-
-1479682146 source:/home/almu/Practica2_AMC/src/GenGraph.cpp
-	"GenGraph.h"
-
-1479682119 /home/almu/Practica2_AMC/include/GenGraph.h
-	"Graph.h"
 

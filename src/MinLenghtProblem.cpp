@@ -1,4 +1,4 @@
-#include "MinLenghtProblem.h"
+#include "../include/MinLenghtProblem.h"
 
 void MinLenghtProblem::Generate_graph()
 {

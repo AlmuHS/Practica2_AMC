@@ -1,4 +1,4 @@
-#include "GenGraph.h"
+#include "../include/GenGraph.h"
 
 GenGraph::GenGraph()
 {
