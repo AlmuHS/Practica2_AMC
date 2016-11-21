@@ -1,6 +1,7 @@
 #ifndef MINLENGHTPROBLEM_H
 #define MINLENGHTPROBLEM_H
 
+#include <iostream>
 #include <cmath>
 #include <cstdlib>
 #include "Graph.h"

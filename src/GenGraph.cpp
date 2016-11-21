@@ -12,6 +12,7 @@ void GenGraph::add_edge(node n1, node n2){
     G.add_node(n2.n);
 
     G.set_distance(n1.n, n2.n, distance);
+    G.set_distance(n2.n, n1.n, distance);
 }
 
 Graph GenGraph::getGraph(){

@@ -23,7 +23,7 @@ class Graph
         vector<int> node_list;
 
     public:
-        Graph(int capacity = 20);
+        Graph(int capacity = 100);
         void add_node(int n1);
         float get_distance(int node1, int node2);
         void set_distance(int node1, int node2, float distance);
