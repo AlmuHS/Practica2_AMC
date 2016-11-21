@@ -32,7 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/GenGraph.h" />
+		<Unit filename="include/Graph.h" />
+		<Unit filename="include/MinLenghtProblem.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/GenGraph.cpp" />
+		<Unit filename="src/Graph.cpp" />
+		<Unit filename="src/MinLenghtProblem.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
