@@ -2,6 +2,11 @@
 
 using namespace std;
 
+MinLenghtProblem::MinLenghtProblem(Graph G){
+    this->G = G;
+}
+
+
 void MinLenghtProblem::Generate_graph()
 {
     node n1;
@@ -14,15 +19,15 @@ void MinLenghtProblem::Generate_graph()
     for(int i = 0; i < 20; i+=2)
     {
         n1.n = i;
-        n1.x = log(rand());
-        n1.y = sqrt(rand());
+        n1.x = rand();
+        n1.y = rand()/20;
 
 
         cout<<n1.n<<"\t"<<n1.x<<"\t\t"<<n1.y<<endl;
 
         n2.n = i + 1;
-        n2.x = log10(rand());
-        n2.y = cbrt(rand())/20;
+        n2.x = rand()*pow(i,2);
+        n2.y = sqrt(rand());
 
         cout<<n2.n<<"\t"<<n2.x<<"\t\t"<<n2.y<<endl;
 
@@ -34,7 +39,6 @@ void MinLenghtProblem::Generate_graph()
 }
 
 
-
 float MinLenghtProblem::SimpleSolution(int node_pair[2])
 {
     vector<int> nodelist = G.get_NodeList();
@@ -43,16 +47,21 @@ float MinLenghtProblem::SimpleSolution(int node_pair[2])
     node_pair[0] = nodelist[0];
     node_pair[1] = nodelist[1];
 
+    cout<<"Number of nodes: "<<numnodes<<endl;
+
     for(int i = 0; i < numnodes; i++)
     {
         for(int j = 0; j < numnodes; j++)
         {
-            float new_min = G.get_distance(nodelist[i], nodelist[j]);
-            if(new_min < minimal)
-            {
-                minimal = new_min;
-                node_pair[0] = nodelist[i];
-                node_pair[1] = nodelist[j];
+            if(i != j){
+                float new_min = G.get_distance(nodelist[i], nodelist[j]);
+                cout<<"Distance "<<i<<" - "<<j<<": "<<new_min<<endl;
+                if(new_min < minimal)
+                {
+                    minimal = new_min;
+                    node_pair[0] = nodelist[i];
+                    node_pair[1] = nodelist[j];
+                }
             }
         }
     }

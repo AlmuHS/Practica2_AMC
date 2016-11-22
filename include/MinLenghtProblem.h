@@ -7,13 +7,14 @@
 #include "Graph.h"
 #include "GenGraph.h"
 
-
 class MinLenghtProblem
 {
 private:
     Graph G;
 
+
 public:
+    MinLenghtProblem(Graph G);
     void Generate_graph();
     float SimpleSolution(int node_pair[2]);
     void DCSolution();

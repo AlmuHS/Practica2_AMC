@@ -1,11 +1,16 @@
 #include "../include/Graph.h"
 
-Graph::Graph(int capacity)//: adjacency_matrix(10,vector<float>(capacity))
+Graph::Graph(int capacity)
 {
     maxNodes = capacity;
     numNodes = 0;
-    //adjacency_matrix.reserve(vector<float>(capacity).capacity());
+}
 
+Graph::Graph(const Graph &G){
+    this->adjacency_matrix = G.adjacency_matrix;
+    this->maxNodes = G.maxNodes;
+    this->numNodes = G.numNodes;
+    this->node_list = G.node_list;
 }
 
 void Graph::add_node(int n1){
@@ -18,8 +23,6 @@ float Graph::get_distance(int node1, int node2){
 }
 
 void Graph::set_distance(int node1, int node2, float distance){
-    //auto inner_it =adjacency_matrix.begin()+node1;
-    //inner_it->insert(inner_it->begin()+node2,distance);
     adjacency_matrix[node1][node2] = distance;
 }
 

@@ -26,6 +26,7 @@ class Graph
 
     public:
         Graph(int capacity = 100);
+        Graph(const Graph &G);
         void add_node(int n1);
         float get_distance(int node1, int node2);
         void set_distance(int node1, int node2, float distance);
