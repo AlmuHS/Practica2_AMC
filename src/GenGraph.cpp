@@ -20,7 +20,6 @@ Graph GenGraph::getGraph(){
 
 void GenGraph::add_pair(pair<float, float> p){
     node_list.push_back(p);
-    //cout<<p.first<<"\t"<<p.second<<endl;
 }
 
 
@@ -43,4 +42,8 @@ void GenGraph::create_graph(){
         }
         G.add_node(n1.n);
     }
+}
+
+void GenGraph::xSort_nodelist(){
+    Q.quickSort(node_list, 0, node_list.size() - 1);
 }

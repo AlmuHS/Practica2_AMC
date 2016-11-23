@@ -13,13 +13,12 @@ void MinLenghtProblem::set_graph(Graph G){
 void MinLenghtProblem::Generate_graph()
 {
     pair<float, float> n1;
-    GenGraph GenG;
 
     cout<<"pos x\t\tpos y"<<endl;
 
-    for(int i = 0; i < 500; i++)
+    for(int i = 0; i < 1000; i++)
     {
-        n1.first = rand();
+        n1.first = log10(rand());
         n1.second = sqrt(rand()/20);
 
         cout<<n1.first<<"\t"<<n1.second<<"\t\t"<<endl;
@@ -27,6 +26,28 @@ void MinLenghtProblem::Generate_graph()
         GenG.add_pair(n1);
     }
 
+    GenG.create_graph();
+
+    G = GenG.getGraph();
+}
+
+void MinLenghtProblem::Generate_XSortedGraph()
+{
+    pair<float, float> n1;
+
+    cout<<"pos x\t\tpos y"<<endl;
+
+    for(int i = 0; i < 500; i++)
+    {
+        n1.first = log10(rand());
+        n1.second = sqrt(rand()/20);
+
+        cout<<n1.first<<"\t"<<n1.second<<"\t\t"<<endl;
+
+        GenG.add_pair(n1);
+    }
+
+    GenG.xSort_nodelist();
     GenG.create_graph();
 
     G = GenG.getGraph();
@@ -49,7 +70,7 @@ float MinLenghtProblem::SimpleSolution(int node_pair[2])
         {
             if(i != j){
                 float new_min = G.get_distance(nodelist[i], nodelist[j]);
-                cout<<"Distance "<<i<<" - "<<j<<": "<<new_min<<endl;
+                cout<<"Distance "<<nodelist[i]<<" - "<<nodelist[j]<<": "<<new_min<<endl;
                 if(new_min < minimal)
                 {
                     minimal = new_min;
@@ -62,9 +83,24 @@ float MinLenghtProblem::SimpleSolution(int node_pair[2])
     return minimal;
 }
 
-void MinLenghtProblem::DCSolution()
-{
+void MinLenghtProblem::GenSortGraph(){
+    GenG.xSort_nodelist();
+    GenG.create_graph();
+    G = GenG.getGraph();
+}
 
+float MinLenghtProblem::DCSolution()
+{
+    vector<int> nodelist = G.get_NodeList();
+    float minimal = G.get_distance(nodelist[0], nodelist[1]);
+    for(int i=1; i<nodelist.size(); i++){
+        if(nodelist[i] != 0){
+            float new_minimal = G.get_distance(nodelist[0], nodelist[i]);
+            cout<<"Distance "<<nodelist[0]<<" - "<<nodelist[i]<<": "<<new_minimal<<endl;
+            if(new_minimal < minimal) minimal = new_minimal;
+        }
+    }
+    return minimal;
 }
 
 

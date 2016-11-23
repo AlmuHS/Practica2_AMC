@@ -11,14 +11,16 @@ class MinLenghtProblem
 {
 private:
     Graph G;
-
+    GenGraph GenG;
 
 public:
     MinLenghtProblem();
     void set_graph(Graph G);
     void Generate_graph();
+    void Generate_XSortedGraph();
     float SimpleSolution(int node_pair[2]);
-    void DCSolution();
+    float DCSolution();
+    void GenSortGraph();
 };
 
 #endif // MINLENGHTPROBLEM_H
