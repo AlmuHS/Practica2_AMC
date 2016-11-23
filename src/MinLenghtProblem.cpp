@@ -2,38 +2,32 @@
 
 using namespace std;
 
-MinLenghtProblem::MinLenghtProblem(Graph G){
+MinLenghtProblem::MinLenghtProblem(){
+    //this->G = G;
+}
+
+void MinLenghtProblem::set_graph(Graph G){
     this->G = G;
 }
 
-
 void MinLenghtProblem::Generate_graph()
 {
-    node n1;
-    node n2;
-
+    pair<float, float> n1;
     GenGraph GenG;
 
-    cout<<"Node\tpos x\t\tpos y"<<endl;
+    cout<<"pos x\t\tpos y"<<endl;
 
-    for(int i = 0; i < 20; i+=2)
+    for(int i = 0; i < 500; i++)
     {
-        n1.n = i;
-        n1.x = rand();
-        n1.y = rand()/20;
+        n1.first = rand();
+        n1.second = sqrt(rand()/20);
 
+        cout<<n1.first<<"\t"<<n1.second<<"\t\t"<<endl;
 
-        cout<<n1.n<<"\t"<<n1.x<<"\t\t"<<n1.y<<endl;
-
-        n2.n = i + 1;
-        n2.x = rand()*pow(i,2);
-        n2.y = sqrt(rand());
-
-        cout<<n2.n<<"\t"<<n2.x<<"\t\t"<<n2.y<<endl;
-
-
-        GenG.add_edge(n1, n2);
+        GenG.add_pair(n1);
     }
+
+    GenG.create_graph();
 
     G = GenG.getGraph();
 }
@@ -42,7 +36,7 @@ void MinLenghtProblem::Generate_graph()
 float MinLenghtProblem::SimpleSolution(int node_pair[2])
 {
     vector<int> nodelist = G.get_NodeList();
-    int numnodes = G.get_numNodes();
+    int numnodes = nodelist.size();
     float minimal = G.get_distance(nodelist[0], nodelist[1]);
     node_pair[0] = nodelist[0];
     node_pair[1] = nodelist[1];

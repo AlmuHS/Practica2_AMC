@@ -1,5 +1,7 @@
 #include "../include/GenGraph.h"
 
+using namespace std;
+
 GenGraph::GenGraph()
 {
     //ctor
@@ -18,6 +20,7 @@ Graph GenGraph::getGraph(){
 
 void GenGraph::add_pair(pair<float, float> p){
     node_list.push_back(p);
+    //cout<<p.first<<"\t"<<p.second<<endl;
 }
 
 
@@ -25,8 +28,8 @@ void GenGraph::create_graph(){
     struct node n1;
     struct node n2;
 
-    for(unsigned int i = 0; i < node_list.capacity(); i++){
-        for(unsigned int j = 0; j < node_list.capacity(); j++){
+    for(unsigned int i = 0; i < node_list.size(); i++){
+        for(unsigned int j = 0; j < node_list.size(); j++){
             if(i != j){
                 n1.n = i;
                 n2.n = j;

@@ -1,6 +1,7 @@
 #ifndef GENGRAPH_H
 #define GENGRAPH_H
 
+#include<iostream>
 #include<utility>
 #include<vector>
 #include "Graph.h"

@@ -14,7 +14,8 @@ private:
 
 
 public:
-    MinLenghtProblem(Graph G);
+    MinLenghtProblem();
+    void set_graph(Graph G);
     void Generate_graph();
     float SimpleSolution(int node_pair[2]);
     void DCSolution();
