@@ -2,7 +2,7 @@
 #define GENGRAPH_H
 
 #include<utility>
-#include<set>
+#include<vector>
 #include "Graph.h"
 
 using namespace std;
@@ -10,7 +10,7 @@ using namespace std;
 class GenGraph
 {
     Graph G;
-    set<pair<float, float> > node_set;
+    vector<pair<float, float> > node_list;
 
 public:
     GenGraph();

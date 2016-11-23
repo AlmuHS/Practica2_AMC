@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1479772826 source:/home/almu/Practica2_AMC/src/GenGraph.cpp
+1479855344 source:/home/almu/Practica2_AMC/src/GenGraph.cpp
 	"../include/GenGraph.h"
 
 1479769952 source:/home/almu/Practica2_AMC/src/Graph.cpp
@@ -10,9 +10,9 @@
 	"include/GenGraph.h"
 	"include/MinLenghtProblem.h"
 
-1479774190 /home/almu/Practica2_AMC/include/GenGraph.h
+1479853639 /home/almu/Practica2_AMC/include/GenGraph.h
 	<utility>
-	<set>
+	<vector>
 	"Graph.h"
 
 1479769654 /home/almu/Practica2_AMC/include/Graph.h
