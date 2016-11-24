@@ -2,6 +2,7 @@
 #define TSPPROBLEM_H
 
 #include "Graph.h"
+#include "GenGraph.h"
 
 class TSPProblem
 {

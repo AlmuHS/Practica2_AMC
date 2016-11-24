@@ -4,6 +4,7 @@ using namespace std;
 
 MinLenghtProblem::MinLenghtProblem(){
     //this->G = G;
+    srand(time(0));
 }
 
 void MinLenghtProblem::set_graph(Graph G){
@@ -37,7 +38,7 @@ void MinLenghtProblem::Generate_XSortedGraph()
 
     cout<<"pos x\t\tpos y"<<endl;
 
-    for(int i = 0; i < 500; i++)
+    for(int i = 0; i < 20; i++)
     {
         n1.first = log10(rand());
         n1.second = sqrt(rand()/20);
@@ -66,9 +67,9 @@ float MinLenghtProblem::SimpleSolution(int node_pair[2])
 
     for(int i = 0; i < numnodes; i++)
     {
-        for(int j = 0; j < numnodes; j++)
+        for(int j = i + 1; j < numnodes; j++)
         {
-            if(i != j){
+            if(nodelist[i] != nodelist[j]){
                 float new_min = G.get_distance(nodelist[i], nodelist[j]);
                 cout<<"Distance "<<nodelist[i]<<" - "<<nodelist[j]<<": "<<new_min<<endl;
                 if(new_min < minimal)

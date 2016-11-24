@@ -1,4 +1,4 @@
-#include "TSPProblem.h"
+#include "../include/TSPProblem.h"
 
 TSPProblem::TSPProblem()
 {

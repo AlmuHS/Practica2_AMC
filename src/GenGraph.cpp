@@ -28,7 +28,7 @@ void GenGraph::create_graph(){
     struct node n2;
 
     for(unsigned int i = 0; i < node_list.size(); i++){
-        for(unsigned int j = 0; j < node_list.size(); j++){
+        for(unsigned int j = i + 1; j <= node_list.size(); j++){
             if(i != j){
                 n1.n = i;
                 n2.n = j;

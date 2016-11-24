@@ -40,13 +40,12 @@ int main()
 
     cout<<"Generating graph..."<<endl;
 
-    MLP.Generate_graph();
+    MLP.Generate_XSortedGraph();
     minimal_lenght = MLP.SimpleSolution(node_pair);
 
     cout<<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl;
     cout<<"The minimal lenght is "<<minimal_lenght<<endl;
 
-    MLP.GenSortGraph();
     minimal_lenght = MLP.DCSolution();
 
     cout<<"The minimal lenght is "<<minimal_lenght;

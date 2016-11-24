@@ -36,11 +36,13 @@
 		<Unit filename="include/Graph.h" />
 		<Unit filename="include/MinLenghtProblem.h" />
 		<Unit filename="include/QuickSort.h" />
+		<Unit filename="include/TSPProblem.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/GenGraph.cpp" />
 		<Unit filename="src/Graph.cpp" />
 		<Unit filename="src/MinLenghtProblem.cpp" />
 		<Unit filename="src/QuickSort.cpp" />
+		<Unit filename="src/TSPProblem.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
