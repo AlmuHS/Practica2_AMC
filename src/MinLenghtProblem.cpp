@@ -17,7 +17,7 @@ void MinLenghtProblem::Generate_graph()
 
     cout<<"pos x\t\tpos y"<<endl;
 
-    for(int i = 0; i < 1000; i++)
+    for(int i = 0; i < 30; i++)
     {
         n1.first = log10(rand());
         n1.second = sqrt(rand()/20);
@@ -36,9 +36,9 @@ void MinLenghtProblem::Generate_XSortedGraph()
 {
     pair<float, float> n1;
 
-    cout<<"pos x\t\tpos y"<<endl;
+    cout<<"pos x\tpos y"<<endl;
 
-    for(int i = 0; i < 20; i++)
+    for(int i = 0; i < 5; i++)
     {
         n1.first = log10(rand());
         n1.second = sqrt(rand()/20);
@@ -54,6 +54,11 @@ void MinLenghtProblem::Generate_XSortedGraph()
     G = GenG.getGraph();
 }
 
+void MinLenghtProblem::SortGraph(){
+    GenG.xSort_nodelist();
+    GenG.create_graph();
+    G = GenG.getGraph();
+}
 
 float MinLenghtProblem::SimpleSolution(int node_pair[2])
 {
@@ -69,25 +74,17 @@ float MinLenghtProblem::SimpleSolution(int node_pair[2])
     {
         for(int j = i + 1; j < numnodes; j++)
         {
-            if(nodelist[i] != nodelist[j]){
-                float new_min = G.get_distance(nodelist[i], nodelist[j]);
-                cout<<"Distance "<<nodelist[i]<<" - "<<nodelist[j]<<": "<<new_min<<endl;
-                if(new_min < minimal)
-                {
-                    minimal = new_min;
-                    node_pair[0] = nodelist[i];
-                    node_pair[1] = nodelist[j];
-                }
+            float new_min = G.get_distance(nodelist[i], nodelist[j]);
+            cout<<"Distance "<<nodelist[i]<<" - "<<nodelist[j]<<": "<<new_min<<endl;
+            if(new_min < minimal)
+            {
+                minimal = new_min;
+                node_pair[0] = nodelist[i];
+                node_pair[1] = nodelist[j];
             }
         }
     }
     return minimal;
-}
-
-void MinLenghtProblem::GenSortGraph(){
-    GenG.xSort_nodelist();
-    GenG.create_graph();
-    G = GenG.getGraph();
 }
 
 float MinLenghtProblem::DCSolution()
@@ -95,13 +92,9 @@ float MinLenghtProblem::DCSolution()
     vector<int> nodelist = G.get_NodeList();
     float minimal = G.get_distance(nodelist[0], nodelist[1]);
     for(int i=1; i<nodelist.size(); i++){
-        if(nodelist[i] != 0){
-            float new_minimal = G.get_distance(nodelist[0], nodelist[i]);
-            cout<<"Distance "<<nodelist[0]<<" - "<<nodelist[i]<<": "<<new_minimal<<endl;
-            if(new_minimal < minimal) minimal = new_minimal;
-        }
+        float new_minimal = G.get_distance(nodelist[0], nodelist[i]);
+        cout<<"Distance "<<nodelist[0]<<" - "<<nodelist[i]<<": "<<new_minimal<<endl;
+        if(new_minimal < minimal) minimal = new_minimal;
     }
     return minimal;
 }
-
-
