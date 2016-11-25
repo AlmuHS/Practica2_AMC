@@ -31,11 +31,18 @@ void test_MLP(){
 int main()
 {
     GenGraph GenG;
+    queue<int> solution;
+    float min_distance;
 
     //test_MLP();
 
     TSPProblem TSP("berlin52.tsp");
     TSP.GenGraphFromFile();
+    TSP.GenSet();
+    min_distance = TSP.GreedySolution();
+    solution = TSP.get_solution();
+
+    cout<<"The minimal way lenght is "<<min_distance<<endl;
 
     return 0;
 }

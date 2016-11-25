@@ -25,7 +25,7 @@ class TSPProblem
         void GenSet();
         void setGraph(Graph G);
         void GenGraphFromFile();
-        void initialize_set();
+        queue<int> get_solution();
 
         float SimpleSolution();
         float GreedySolution();
