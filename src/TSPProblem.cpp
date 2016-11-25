@@ -77,30 +77,39 @@ float TSPProblem::SimpleSolution(){
 
 float TSPProblem::GreedySolution(){
     int numnodes = G.get_numNodes();
-    float minimal = G.get_distance(node_vector[0], node_vector[1]);
+    float minimal = 9999999999999;
     float new_min;
     float sum_distance = 0;
     int i = 0;
+    int pos_min = 0;
+
+    solution_queue.push(node_vector[0] + 1);
+    node_set.erase(node_vector[0]);
 
     while(!node_set.empty()){
         for(int j = 0; j < numnodes; j++){
-            if( j != i && node_set.count(node_vector[j]) != 0){
+            if( j != i && node_set.count(node_vector[j]) > 0){
+
                 if(j < i) new_min =  G.get_distance(node_vector[j], node_vector[i]);
                 else new_min = G.get_distance(node_vector[i], node_vector[j]);
 
                 if(new_min < minimal){
-                    cout<<i<<" - "<<j<<endl;
-                    i = j;
-                    new_min = minimal;
-                    node_set.erase(node_vector[j]);
-                    solution_queue.push(node_vector[j]);
-                    sum_distance += new_min;
-                    break;
-                }//end if new_min
+                    minimal = new_min;
+                    pos_min = j;
+                }
             }//end if node_set
         }//end for j
-        i++;
+        cout<<i + 1<<" - "<<pos_min + 1<<endl;
+        i = pos_min;
+
+        node_set.erase(node_vector[pos_min]);
+        solution_queue.push(node_vector[pos_min] + 1);
+        sum_distance += minimal;
+        minimal = 999999999999;
     }//end while
+
+    sum_distance += G.get_distance(node_vector[0], node_vector[pos_min]);
+
     return sum_distance;
 }
 

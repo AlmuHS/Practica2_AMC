@@ -5,7 +5,7 @@
 1479900075 source:/home/almu/Practica2_AMC/src/Graph.cpp
 	"../include/Graph.h"
 
-1480074078 source:/home/almu/Practica2_AMC/main.cpp
+1480088720 source:/home/almu/Practica2_AMC/main.cpp
 	<iostream>
 	"include/GenGraph.h"
 	"include/MinLenghtProblem.h"
@@ -42,10 +42,10 @@
 1479904406 source:/home/almu/Practica2_AMC/src/QuickSort.cpp
 	"../include/QuickSort.h"
 
-1480074363 source:/home/almu/Practica2_AMC/src/TSPProblem.cpp
+1480092837 source:/home/almu/Practica2_AMC/src/TSPProblem.cpp
 	"../include/TSPProblem.h"
 
-1480073970 /home/almu/Practica2_AMC/include/TSPProblem.h
+1480089250 /home/almu/Practica2_AMC/include/TSPProblem.h
 	"Graph.h"
 	"GenGraph.h"
 	<fstream>

@@ -42,7 +42,13 @@ int main()
     min_distance = TSP.GreedySolution();
     solution = TSP.get_solution();
 
-    cout<<"The minimal way lenght is "<<min_distance<<endl;
+    cout<<"The minimal way is ";
+    for(int i=0; i<solution.size(); i++){
+        cout<<solution.front()<<" - ";
+        solution.pop();
+    }
+    cout<<1;
+    cout<<endl<<"The minimal way lenght is "<<min_distance<<endl;
 
     return 0;
 }
