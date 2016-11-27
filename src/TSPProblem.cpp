@@ -42,29 +42,7 @@ void TSPProblem::GenSet(){
 float TSPProblem::SimpleSolution(){
     float minimal, new_min, length;
     int numnodes = G.get_numNodes();
-    int copy_i, copy_j;
 
-
-    for(int i = 0; i < numnodes; i++){
-        copy_i = i;
-        for(int j = 0; j < numnodes; j++){
-            if(i != j && node_set.count(node_vector[j]) != 0){
-
-                if(j < i) new_min = G.get_distance(node_vector[i], node_vector[j]);
-                else new_min = G.get_distance(node_vector[j], node_vector[i]);
-
-                if(new_min < minimal){
-                    minimal = new_min;
-                    i = j;
-                    j = 0;
-                    copy_j = j;
-                    node_set.erase(node_vector[j]);
-                    solution_queue.push(node_vector[j]);
-                }
-            }
-            //if(node_se)
-        }
-    }
     return minimal;
 }
 
