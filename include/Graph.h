@@ -20,7 +20,7 @@ class Graph
     private:
         int numNodes;
         int maxNodes;
-        //vector<vector<float> > adjacency_matrix;
+
         map<int, map<int,float> > adjacency_matrix;
         vector<int> node_list;
 

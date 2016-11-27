@@ -2,9 +2,10 @@
 
 using namespace std;
 
-GenGraph::GenGraph()
+GenGraph::GenGraph(string file_n): file(file_n, ios::in)
 {
     //ctor
+    file_name = file_n;
 }
 
 void GenGraph::add_edge(node n1, node n2){
@@ -39,11 +40,42 @@ void GenGraph::create_graph(){
                 add_edge(n1, n2);
             }
         }
-        if(G.get_numNodes() < node_list.size())
+        if((unsigned) G.get_numNodes() < node_list.size())
             G.add_node(n1.n);
     }
 }
 
 void GenGraph::xSort_nodelist(){
     Q.quickSort(node_list, 0, node_list.size() - 1);
+}
+
+
+void GenGraph::GenGraphFromFile(){
+    string line;
+    int n = 1;
+    pair<float, float> n1;
+
+    //skip file headers
+    getline(file, line);
+    getline(file, line);
+    getline(file, line);
+    getline(file, line);
+    getline(file, line);
+    getline(file, line);
+
+    while(n != 0){
+        file >> n;
+        if(n != 0){
+            file >> n1.first;
+            file >> n1.second;
+            cout<<n<<"\t"<<n1.first<<"\t"<<n1.second<<endl;
+            add_pair(n1);
+        }
+    }
+
+    create_graph();}
+
+void GenGraph::SortGraph(){
+    xSort_nodelist();
+    create_graph();
 }

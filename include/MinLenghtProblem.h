@@ -20,7 +20,6 @@ public:
     void Generate_XSortedGraph();
     float SimpleSolution(int node_pair[2]);
     float DCSolution();
-    void SortGraph();
 };
 
 #endif // MINLENGHTPROBLEM_H

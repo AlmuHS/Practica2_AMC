@@ -2,37 +2,12 @@
 
 using namespace std;
 
-TSPProblem::TSPProblem(string file_n): file(file_n, ios::in)
+TSPProblem::TSPProblem()
 {
     //ctor
-    file_name = file_n;
+
 }
 
-void TSPProblem::GenGraphFromFile(){
-    string line;
-    int n;
-    pair<float, float> n1;
-
-
-    getline(file, line);
-    getline(file, line);
-    getline(file, line);
-    getline(file, line);
-    getline(file, line);
-    getline(file, line);
-
-    while(n != 0){
-        file >> n;
-        if(n != 0){
-            file >> n1.first;
-            file >> n1.second;
-            cout<<n<<"\t"<<n1.first<<"\t"<<n1.second<<endl;
-            GenG.add_pair(n1);
-        }
-    }
-
-    GenG.create_graph();
-    G = GenG.getGraph();}
 
 void TSPProblem::setGraph(Graph G){
     this->G = G;
@@ -87,8 +62,8 @@ float TSPProblem::GreedySolution(){
     node_set.erase(node_vector[0]);
 
     while(!node_set.empty()){
-        for(int j = 0; j < numnodes; j++){
-            if( j != i && node_set.count(node_vector[j]) > 0){
+        for(int j = 1; j < numnodes; j++){
+            if(node_set.count(node_vector[j]) > 0){
 
                 if(j < i) new_min =  G.get_distance(node_vector[j], node_vector[i]);
                 else new_min = G.get_distance(node_vector[i], node_vector[j]);
