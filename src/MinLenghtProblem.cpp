@@ -72,11 +72,11 @@ void MinLenghtProblem::Generate_XSortedGraph()
 }
 
 
-float MinLenghtProblem::SimpleSolution(int node_pair[2])
+int MinLenghtProblem::SimpleSolution(int node_pair[2])
 {
     vector<int> nodelist = G.get_NodeList();
     int numnodes = nodelist.size();
-    float minimal = G.get_distance(nodelist[0], nodelist[1]);
+    long minimal = G.get_distance(nodelist[0], nodelist[1]);
     node_pair[0] = nodelist[0];
     node_pair[1] = nodelist[1];
 
@@ -99,11 +99,11 @@ float MinLenghtProblem::SimpleSolution(int node_pair[2])
     return minimal;
 }
 
-float MinLenghtProblem::DCSolution()
+int MinLenghtProblem::DCSolution()
 {
     vector<int> nodelist = G.get_NodeList();
     int numnodes = nodelist.size();
-    float minimal = 99999999999999999;
+    long minimal = 99999999999999999;
     for(int i = 1; i < numnodes; i++){
         float new_minimal = G.get_distance(nodelist[0], nodelist[i]);
         cout<<"Distance "<<nodelist[0]<<" - "<<nodelist[i]<<": "<<new_minimal<<endl;

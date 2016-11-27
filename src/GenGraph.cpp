@@ -28,7 +28,7 @@ GenGraph::GenGraph(string file_n): file(file_n, ios::in)
 }
 
 void GenGraph::add_edge(node n1, node n2){
-    float distance = sqrt(pow(n1.x - n2.x, 2) + pow(n1.y - n2.y, 2));
+    int distance = rint(sqrt(pow(n1.x - n2.x, 2) + pow(n1.y - n2.y, 2)));
 
     G.set_distance(n1.n, n2.n, distance);
 }

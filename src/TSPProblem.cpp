@@ -69,11 +69,11 @@ float TSPProblem::SimpleSolution(){
 }
 
 
-float TSPProblem::GreedySolution(){
+int TSPProblem::GreedySolution(){
     int numnodes = G.get_numNodes();
-    float minimal = 9999999999999;
-    float new_min;
-    float sum_distance = 0;
+    long minimal = 9999999999999;
+    long new_min;
+    int sum_distance = 0;
     int i = 0;
     int pos_min = 0;
 
@@ -81,7 +81,7 @@ float TSPProblem::GreedySolution(){
     node_set.erase(node_vector[0]);
 
     while(!node_set.empty()){
-        for(int j = 1; j < numnodes; j++){
+        for(int j = 0; j < numnodes; j++){
             if(node_set.count(node_vector[j]) > 0){
 
                 if(j < i) new_min =  G.get_distance(node_vector[j], node_vector[i]);

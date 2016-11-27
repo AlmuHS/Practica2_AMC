@@ -35,11 +35,11 @@ void Graph::add_node(int n1){
     numNodes++;
 }
 
-float Graph::get_distance(int node1, int node2){
+int Graph::get_distance(int node1, int node2){
     return adjacency_matrix[node1][node2];
 }
 
-void Graph::set_distance(int node1, int node2, float distance){
+void Graph::set_distance(int node1, int node2, int distance){
     adjacency_matrix[node1][node2] = distance;
 }
 

@@ -39,15 +39,15 @@ class Graph
         int numNodes;
         int maxNodes;
 
-        map<int, map<int,float> > adjacency_matrix;
+        map<int, map<int,int> > adjacency_matrix;
         vector<int> node_list;
 
     public:
         Graph(int capacity = 100);
         Graph(const Graph &G);
         void add_node(int n1);
-        float get_distance(int node1, int node2);
-        void set_distance(int node1, int node2, float distance);
+        int get_distance(int node1, int node2);
+        void set_distance(int node1, int node2, int distance);
         int get_numNodes();
         vector<int> get_NodeList();
 };

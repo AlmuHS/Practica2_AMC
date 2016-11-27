@@ -27,7 +27,7 @@ using namespace std;
 void test_MLP(){
     GenGraph GenG("ch130.tsp");
     MinLenghtProblem MLP;
-    float minimal_lenght;
+    long minimal_lenght;
     int node_pair[2];
 
     cout<<"Generating graph..."<<endl;
@@ -50,7 +50,7 @@ void test_MLP(){
 
 void test_TSP(){
     queue<int> solution;
-    float min_distance;
+    long min_distance;
     TSPProblem TSP;
 
     GenGraph GenG("d493.tsp");
@@ -76,8 +76,8 @@ void test_TSP(){
 int main()
 {
 
-    //test_MLP();
-    test_TSP();
+    test_MLP();
+    //test_TSP();
 
     return 0;
 }

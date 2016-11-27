@@ -43,7 +43,7 @@ class TSPProblem
         queue<int> get_solution();
 
         float SimpleSolution();
-        float GreedySolution();
+        int GreedySolution();
 };
 
 #endif // TSPPROBLEM_H
