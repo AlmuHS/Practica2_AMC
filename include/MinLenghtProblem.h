@@ -34,8 +34,6 @@ private:
 public:
     MinLenghtProblem();
     void set_graph(Graph G);
-    void Generate_graph();
-    void Generate_XSortedGraph();
     int SimpleSolution(int node_pair[2]);
     int DCSolution();
 };

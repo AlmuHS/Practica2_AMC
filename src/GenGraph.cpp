@@ -98,3 +98,42 @@ void GenGraph::SortGraph(){
     xSort_nodelist();
     create_graph();
 }
+
+
+void GenGraph::Generate_graph()
+{
+    pair<float, float> n1;
+
+    cout<<"pos x\t\tpos y"<<endl;
+
+    for(int i = 0; i < 5000; i++)
+    {
+        n1.first = rand()%100000;
+        n1.second = 2*i + rand()%5000;
+
+        cout<<n1.first<<"\t"<<n1.second<<"\t\t"<<endl;
+
+        add_pair(n1);
+    }
+
+    create_graph();
+}
+
+void GenGraph::Generate_XSortedGraph()
+{
+    pair<float, float> n1;
+    cout<<"pos x\tpos y"<<endl;
+
+    for(int i = 0; i < 5; i++)
+    {
+        n1.first = log10(rand());
+        n1.second = sqrt(rand()/20);
+
+        cout<<n1.first<<"\t"<<n1.second<<"\t\t"<<endl;
+
+        add_pair(n1);
+    }
+
+    xSort_nodelist();
+    create_graph();
+}

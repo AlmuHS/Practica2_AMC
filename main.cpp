@@ -32,10 +32,11 @@ void test_MLP(){
 
     cout<<"Generating graph..."<<endl;
 
-    GenG.GenGraphFromFile();
-    MLP.set_graph(GenG.getGraph());
+    //GenG.GenGraphFromFile();
+    //MLP.set_graph(GenG.getGraph());
 
-    //MLP.Generate_graph();
+    GenG.Generate_graph();
+    MLP.set_graph(GenG.getGraph());
     minimal_lenght = MLP.SimpleSolution(node_pair);
 
     cout<<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl;

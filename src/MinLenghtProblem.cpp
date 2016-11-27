@@ -29,47 +29,6 @@ void MinLenghtProblem::set_graph(Graph G){
 }
 
 
-void MinLenghtProblem::Generate_graph()
-{
-    pair<float, float> n1;
-
-    cout<<"pos x\t\tpos y"<<endl;
-
-    for(int i = 0; i < 5000; i++)
-    {
-        n1.first = log10(rand());
-        n1.second = sqrt(rand()/20);
-
-        cout<<n1.first<<"\t"<<n1.second<<"\t\t"<<endl;
-
-        GenG.add_pair(n1);
-    }
-
-    GenG.create_graph();
-
-    G = GenG.getGraph();
-}
-
-void MinLenghtProblem::Generate_XSortedGraph()
-{
-    pair<float, float> n1;
-    cout<<"pos x\tpos y"<<endl;
-
-    for(int i = 0; i < 5; i++)
-    {
-        n1.first = log10(rand());
-        n1.second = sqrt(rand()/20);
-
-        cout<<n1.first<<"\t"<<n1.second<<"\t\t"<<endl;
-
-        GenG.add_pair(n1);
-    }
-
-    GenG.xSort_nodelist();
-    GenG.create_graph();
-
-    G = GenG.getGraph();
-}
 
 
 int MinLenghtProblem::SimpleSolution(int node_pair[2])
@@ -86,7 +45,7 @@ int MinLenghtProblem::SimpleSolution(int node_pair[2])
     {
         for(int j = i + 1; j < numnodes; j++)
         {
-            float new_min = G.get_distance(nodelist[i], nodelist[j]);
+            long new_min = G.get_distance(nodelist[i], nodelist[j]);
             cout<<"Distance "<<nodelist[i]<<" - "<<nodelist[j]<<": "<<new_min<<endl;
             if(new_min < minimal)
             {
@@ -101,11 +60,13 @@ int MinLenghtProblem::SimpleSolution(int node_pair[2])
 
 int MinLenghtProblem::DCSolution()
 {
+    GenG.SortGraph();
     vector<int> nodelist = G.get_NodeList();
-    int numnodes = nodelist.size();
+    int numnodes = G.get_numNodes();
     long minimal = 99999999999999999;
+    long new_minimal = 0;
     for(int i = 1; i < numnodes; i++){
-        float new_minimal = G.get_distance(nodelist[0], nodelist[i]);
+        new_minimal = G.get_distance(nodelist[0], nodelist[i]);
         cout<<"Distance "<<nodelist[0]<<" - "<<nodelist[i]<<": "<<new_minimal<<endl;
         if(new_minimal < minimal) minimal = new_minimal;
     }
