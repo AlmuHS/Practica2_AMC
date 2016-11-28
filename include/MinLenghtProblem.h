@@ -24,6 +24,7 @@
 #include <cstdlib>
 #include "Graph.h"
 #include "GenGraph.h"
+#include <ctime>
 
 class MinLenghtProblem
 {

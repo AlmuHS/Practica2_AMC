@@ -63,7 +63,7 @@ int MinLenghtProblem::DCSolution()
     GenG.SortGraph();
     vector<int> nodelist = G.get_NodeList();
     int numnodes = G.get_numNodes();
-    long minimal = 99999999999999999;
+    long minimal = 9999999999999;
     long new_minimal = 0;
     for(int i = 1; i < numnodes; i++){
         new_minimal = G.get_distance(nodelist[0], nodelist[i]);
