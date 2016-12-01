@@ -21,7 +21,7 @@
 
 using namespace std;
 
-GenGraph::GenGraph(char* file_n): file(file_n, ios::in)
+GenGraph::GenGraph(string file_n): file(file_n.c_str(), ios::in)
 {
     //ctor
     file_name = file_n;

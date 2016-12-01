@@ -36,10 +36,10 @@ class GenGraph
     vector<pair<float, float> > node_list;
     QuickSort Q;
     ifstream file;
-    char* file_name;
+    string file_name;
 
 public:
-    GenGraph(char* file_n = "");
+    GenGraph(string file_n = "");
     void add_pair(pair<float, float> p);
     void add_edge(node n1, node n2);
     void create_graph();

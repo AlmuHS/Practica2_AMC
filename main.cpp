@@ -33,7 +33,6 @@ void test_MLP(){
     cout<<"Generating graph..."<<endl;
 
     //GenG.GenGraphFromFile();
-    //MLP.set_graph(GenG.getGraph());
 
     GenG.Generate_graph();
     MLP.set_graph(GenG.getGraph());
@@ -77,8 +76,8 @@ void test_TSP(){
 int main()
 {
 
-    test_MLP();
-    //test_TSP();
+    //test_MLP();
+    test_TSP();
 
     return 0;
 }
