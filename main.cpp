@@ -25,16 +25,16 @@ using namespace std;
 
 
 void test_MLP(){
-    GenGraph GenG("ch130.tsp");
+    GenGraph GenG("berlin52.tsp");
     MinLenghtProblem MLP;
     long minimal_lenght;
     int node_pair[2];
 
     cout<<"Generating graph..."<<endl;
 
-    //GenG.GenGraphFromFile();
+    GenG.GenGraphFromFile();
 
-    GenG.Generate_graph();
+    //GenG.Generate_graph();
     MLP.set_graph(GenG.getGraph());
     minimal_lenght = MLP.SimpleSolution(node_pair);
 
@@ -67,7 +67,6 @@ void test_TSP(){
         cout<<solution.front()<<" - ";
         solution.pop();
     }
-    cout<<1;
     cout<<endl<<"The minimal way lenght is "<<min_distance<<endl;
 
 }
@@ -75,9 +74,25 @@ void test_TSP(){
 
 int main()
 {
+    int option;
 
-    //test_MLP();
-    test_TSP();
+
+    cout<<"Complex Algorithms study"<<endl
+        <<"************************"<<endl
+        <<"1. Test Minimal Lenght Points Problem"<<endl
+        <<"2. Test Travel Salesman Problem"<<endl
+        <<"Select Option: ";
+    cin>>option;
+
+    switch(option){
+        case 1:
+            test_MLP();
+        break;
+
+        case 2:
+            test_TSP();
+        break;
+    }
 
     return 0;
 }
