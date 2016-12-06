@@ -24,17 +24,16 @@
 using namespace std;
 
 
-void test_MLP(){
-    GenGraph GenG("berlin52.tsp");
+void test_MLP(int numnodes)
+{
+    GenGraph GenG;
     MinLenghtProblem MLP;
     long minimal_lenght;
     int node_pair[2];
 
     cout<<"Generating graph..."<<endl;
 
-    GenG.GenGraphFromFile();
-
-    //GenG.Generate_graph();
+    GenG.Generate_graph(numnodes);
     MLP.set_graph(GenG.getGraph());
     minimal_lenght = MLP.SimpleSolution(node_pair);
 
@@ -45,15 +44,16 @@ void test_MLP(){
     MLP.set_graph(GenG.getGraph());
     minimal_lenght = MLP.DCSolution();
 
-    cout<<"The minimal lenght is "<<minimal_lenght;
+    cout<<"The minimal lenght is "<<minimal_lenght<<endl;
 }
 
-void test_TSP(){
+void test_TSP(string file)
+{
     queue<int> solution;
     long min_distance;
     TSPProblem TSP;
 
-    GenGraph GenG("d493.tsp");
+    GenGraph GenG(file);
     GenG.GenGraphFromFile();
     TSP.setGraph(GenG.getGraph());
     TSP.GenSet();
@@ -63,7 +63,8 @@ void test_TSP(){
     cout<<"The minimal way is ";
     int sol_size = solution.size();
 
-    for(int i=0; i<sol_size; i++){
+    for(int i = 0; i < sol_size; i++)
+    {
         cout<<solution.front()<<" - ";
         solution.pop();
     }
@@ -75,24 +76,54 @@ void test_TSP(){
 int main()
 {
     int option;
+    int num_file;
+    int numnodes;
 
+    do
+    {
 
-    cout<<"Complex Algorithms study"<<endl
-        <<"************************"<<endl
-        <<"1. Test Minimal Lenght Points Problem"<<endl
-        <<"2. Test Travel Salesman Problem"<<endl
-        <<"Select Option: ";
-    cin>>option;
+        cout<<"Complex Algorithms study"<<endl
+            <<"************************"<<endl
+            <<"1. Test Minimal Lenght Points Problem"<<endl
+            <<"2. Test Travel Salesman Problem"<<endl
+            <<"3. Exit"<<endl
+            <<"Select Option: ";
+        cin>>option;
 
-    switch(option){
+        switch(option)
+        {
         case 1:
-            test_MLP();
-        break;
+            cout<<"Introduce number of nodes: ";
+            cin>>numnodes;
+            test_MLP(numnodes);
+            break;
 
         case 2:
-            test_TSP();
-        break;
+            cout<<"Select file: "<<endl
+                <<"1. berlin52"<<endl
+                <<"2. ch130"<<endl
+                <<"3. d493"<<endl
+                <<"Enter option: ";
+            cin>>num_file;
+
+            switch(num_file)
+            {
+            case 1:
+                test_TSP("berlin52.tsp");
+                break;
+
+            case 2:
+                test_TSP("ch130.tsp");
+                break;
+
+            case 3:
+                test_TSP("d493.tsp");
+                break;
+            }
+            break;
+        }
     }
+    while(option != 3);
 
     return 0;
 }

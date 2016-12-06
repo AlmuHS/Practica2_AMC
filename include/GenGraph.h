@@ -47,7 +47,7 @@ public:
     void xSort_nodelist();
     Graph getGraph();
     void SortGraph();
-    void Generate_graph();
+    void Generate_graph(int numnodes);
     void Generate_XSortedGraph();
 };
 
