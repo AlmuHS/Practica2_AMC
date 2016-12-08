@@ -52,20 +52,24 @@ void test_TSP(string file)
     queue<int> solution;
     long min_distance;
     TSPProblem TSP;
+    ofstream fout;
 
     GenGraph GenG(file);
     GenG.GenGraphFromFile();
     TSP.setGraph(GenG.getGraph());
     TSP.GenSet();
-    min_distance = TSP.GreedySolution();
+    //min_distance = TSP.GreedySolution();
+    min_distance = TSP.SimpleSolution();
     solution = TSP.get_solution();
 
-    cout<<"The minimal way is ";
+    cout<<"The minimal way is "<<endl;
     int sol_size = solution.size();
 
     for(int i = 0; i < sol_size; i++)
     {
-        cout<<solution.front()<<" - ";
+        int node = solution.front();
+        cout<<node<<" - ";
+
         solution.pop();
     }
     cout<<endl<<"The minimal way lenght is "<<min_distance<<endl;

@@ -36,6 +36,7 @@ class GenGraph
     vector<pair<float, float> > node_list;
     QuickSort Q;
     ifstream file;
+    ofstream fout;
     string file_name;
 
 public:

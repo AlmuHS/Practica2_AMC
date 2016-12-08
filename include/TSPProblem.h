@@ -42,7 +42,7 @@ class TSPProblem
         void setGraph(Graph G);
         queue<int> get_solution();
 
-        float SimpleSolution();
+        int SimpleSolution();
         int GreedySolution();
 };
 
