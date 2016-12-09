@@ -39,14 +39,14 @@ int MinLenghtProblem::SimpleSolution(int node_pair[2])
     node_pair[0] = nodelist[0];
     node_pair[1] = nodelist[1];
 
-    cout<<"Number of nodes: "<<numnodes<<endl;
+    //cout<<"Number of nodes: "<<numnodes<<endl;
 
     for(int i = 0; i < numnodes; i++)
     {
         for(int j = i + 1; j < numnodes; j++)
         {
             long new_min = G.get_distance(nodelist[i], nodelist[j]);
-            cout<<"Distance "<<nodelist[i]<<" - "<<nodelist[j]<<": "<<new_min<<endl;
+            //cout<<"Distance "<<nodelist[i]<<" - "<<nodelist[j]<<": "<<new_min<<endl;
             if(new_min < minimal)
             {
                 minimal = new_min;

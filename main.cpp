@@ -1,3 +1,5 @@
+
+// *** END ***
 /* Copyright 2016 Almudena García Jurado-Centurión
     This file is part of Practica2_AMC.
 
@@ -15,7 +17,8 @@
     along with Practica2_AMC.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
+// *** ADDED BY HEADER FIXUP ***
+#include <istream>
 #include <iostream>
 #include "include/GenGraph.h"
 #include "include/MinLenghtProblem.h"
@@ -82,13 +85,13 @@ int main()
         switch(option)
         {
         case 1:
-            cout<<"Introduce number of nodes: ";
+            /*cout<<"Introduce number of nodes: ";
             cin>>numnodes;
-            //test_MLP(numnodes);
             T_MLP.set_numnodes(numnodes);
-            T_MLP.RandomDemo();
+            T_MLP.RandomDemo();*/
+            T_MLP.BestCase(1);
 
-            break;
+        break;
 
         case 2:
             cout<<"Select file: "<<endl
@@ -114,6 +117,7 @@ int main()
             }
             break;
         }
+
     }
     while(option != 3);
 

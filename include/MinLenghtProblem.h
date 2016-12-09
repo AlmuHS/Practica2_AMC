@@ -1,3 +1,6 @@
+// *** ADDED BY HEADER FIXUP ***
+#include <istream>
+// *** END ***
 /* Copyright 2016 Almudena García Jurado-Centurión
     This file is part of Practica2_AMC.
 

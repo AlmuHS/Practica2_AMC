@@ -104,14 +104,14 @@ void GenGraph::Generate_graph(int numnodes)
 {
     pair<float, float> n1;
 
-    cout<<"pos x\t\tpos y"<<endl;
+    //cout<<"pos x\tpos y"<<endl;
 
     for(int i = 0; i < numnodes; i++)
     {
-        n1.first = rand()%100000;
-        n1.second = 2*i + rand()%5000;
+        n1.first = rand()%100000 + 100;
+        n1.second = 2*i + rand()%5000 + 50;
 
-        cout<<n1.first<<"\t"<<n1.second<<"\t\t"<<endl;
+        //cout<<n1.first<<"\t"<<n1.second<<"\t\t"<<endl;
 
         add_pair(n1);
     }
