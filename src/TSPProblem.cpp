@@ -45,7 +45,6 @@ void TSPProblem::GenSet()
 
 int TSPProblem::SimpleSolution()
 {
-    int minimal, new_min, length;
     int numnodes = G.get_numNodes();
     long long sum_distance = 999999999999;
     long long new_distance = 0;
@@ -64,18 +63,18 @@ int TSPProblem::SimpleSolution()
             }
             cout<<node_vector[i]<<" - ";
             new_solution.push(node_vector[i]);
-        }
+        }//End for
         cout<<new_distance<<endl<<endl;
 
         if(new_distance < sum_distance)
         {
             sum_distance = new_distance;
             solution_queue = new_solution;
-        }
+        }//End if
         new_distance = 0;
-    }
+    }//End while
 
-    return minimal;
+    return sum_distance;
 }
 
 

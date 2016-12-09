@@ -31,6 +31,10 @@ Graph::Graph(const Graph &G){
 }
 
 void Graph::add_node(int n1){
+    if(numNodes == 0){
+        adjacency_matrix.clear();
+        node_list.clear();
+    }
     node_list.push_back(n1);
     numNodes++;
 }

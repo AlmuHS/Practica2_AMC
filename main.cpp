@@ -20,38 +20,21 @@
 #include "include/GenGraph.h"
 #include "include/MinLenghtProblem.h"
 #include "include/TSPProblem.h"
+#include "include/Test_MLP.h"
+#include "include/Test_TSP.h"
 
 using namespace std;
 
 
-void test_MLP(int numnodes)
-{
-    GenGraph GenG;
-    MinLenghtProblem MLP;
-    long minimal_lenght;
-    int node_pair[2];
 
-    cout<<"Generating graph..."<<endl;
-
-    GenG.Generate_graph(numnodes);
-    MLP.set_graph(GenG.getGraph());
-    minimal_lenght = MLP.SimpleSolution(node_pair);
-
-    cout<<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl;
-    cout<<"The minimal lenght is "<<minimal_lenght<<endl;
-
-    GenG.SortGraph();
-    MLP.set_graph(GenG.getGraph());
-    minimal_lenght = MLP.DCSolution();
-
-    cout<<"The minimal lenght is "<<minimal_lenght<<endl;
-}
 
 void test_TSP(string file)
 {
     queue<int> solution;
     long min_distance;
     TSPProblem TSP;
+
+
     ofstream fout;
 
     GenGraph GenG(file);
@@ -82,6 +65,8 @@ int main()
     int option;
     int num_file;
     int numnodes;
+    Test_MLP T_MLP;
+
 
     do
     {
@@ -99,7 +84,10 @@ int main()
         case 1:
             cout<<"Introduce number of nodes: ";
             cin>>numnodes;
-            test_MLP(numnodes);
+            //test_MLP(numnodes);
+            T_MLP.set_numnodes(numnodes);
+            T_MLP.RandomDemo();
+
             break;
 
         case 2:
