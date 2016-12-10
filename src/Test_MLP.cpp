@@ -17,12 +17,12 @@ void Test_MLP::set_numnodes(int n_nodes){
 }
 
 
-void Test_MLP::RandomDemo(){
+void Test_MLP::RandomDemo(int n_nodes){
     GenGraph GenG;
     long minimal_lenght;
     int node_pair[2];
 
-    GenG.Generate_graph(numnodes);
+    GenG.Generate_graph(n_nodes);
     MLP.set_graph(GenG.getGraph());
     minimal_lenght = MLP.SimpleSolution(node_pair);
 
@@ -94,9 +94,9 @@ void Test_MLP::BestCase(int method){
 
     int StartLenght, EndLenght, increase;
 
-    StartLenght = 50;
-    increase = 50;
-    EndLenght = 1000;
+    StartLenght = 10;
+    increase = 5;
+    EndLenght = 30;
 
     for(int j = StartLenght; j < EndLenght; j+=increase){
 
@@ -132,9 +132,9 @@ void Test_MLP::MediumCase(int method){
 
     int StartLenght, EndLenght, increase;
 
-    StartLenght = 50;
-    increase = 50;
-    EndLenght = 1000;
+    StartLenght = 10;
+    increase = 10;
+    EndLenght = 50;
 
     for(int j = StartLenght; j < EndLenght; j+=increase){
 
@@ -160,9 +160,9 @@ void Test_MLP::WorstCase(int method){
 
     int StartLenght, EndLenght, increase;
 
-    StartLenght = 50;
-    increase = 50;
-    EndLenght = 1000;
+    StartLenght = 10;
+    increase = 10;
+    EndLenght = 50;
 
     for(int j = StartLenght; j < EndLenght; j += increase){
 

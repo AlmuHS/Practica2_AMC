@@ -67,7 +67,7 @@ int MinLenghtProblem::DCSolution()
     long new_minimal = 0;
     for(int i = 1; i < numnodes; i++){
         new_minimal = G.get_distance(nodelist[0], nodelist[i]);
-        cout<<"Distance "<<nodelist[0]<<" - "<<nodelist[i]<<": "<<new_minimal<<endl;
+        //cout<<"Distance "<<nodelist[0]<<" - "<<nodelist[i]<<": "<<new_minimal<<endl;
         if(new_minimal < minimal) minimal = new_minimal;
     }
     return minimal;

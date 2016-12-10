@@ -17,7 +17,7 @@ class Test_MLP
     public:
         Test_MLP();
         void set_numnodes(int n_nodes);
-        void RandomDemo();
+        void RandomDemo(int n_nodes);
         double Search(Graph G, int method);
         void BestCase(int method);
         void MediumCase(int method);

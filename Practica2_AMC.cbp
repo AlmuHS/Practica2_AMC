@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -34,6 +36,7 @@
 		</Compiler>
 		<Unit filename="include/GenGraph.h" />
 		<Unit filename="include/Graph.h" />
+		<Unit filename="include/Menu.h" />
 		<Unit filename="include/MinLenghtProblem.h" />
 		<Unit filename="include/QuickSort.h" />
 		<Unit filename="include/TSPProblem.h" />
@@ -42,6 +45,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/GenGraph.cpp" />
 		<Unit filename="src/Graph.cpp" />
+		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/MinLenghtProblem.cpp" />
 		<Unit filename="src/QuickSort.cpp" />
 		<Unit filename="src/TSPProblem.cpp" />
