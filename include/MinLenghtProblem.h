@@ -39,7 +39,7 @@ public:
     MinLenghtProblem();
     void set_graph(Graph G);
     int SimpleSolution(int node_pair[2]);
-    int DCSolution();
+    int DCSolution(int node_pair[2]);
 };
 
 #endif // MINLENGHTPROBLEM_H

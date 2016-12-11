@@ -38,7 +38,6 @@
 		<Unit filename="include/Graph.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/MinLenghtProblem.h" />
-		<Unit filename="include/QuickSort.h" />
 		<Unit filename="include/TSPProblem.h" />
 		<Unit filename="include/Test_MLP.h" />
 		<Unit filename="include/Test_TSP.h" />
@@ -47,7 +46,6 @@
 		<Unit filename="src/Graph.cpp" />
 		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/MinLenghtProblem.cpp" />
-		<Unit filename="src/QuickSort.cpp" />
 		<Unit filename="src/TSPProblem.cpp" />
 		<Unit filename="src/Test_MLP.cpp" />
 		<Unit filename="src/Test_TSP.cpp" />

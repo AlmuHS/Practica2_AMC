@@ -47,12 +47,16 @@ void Menu::MLP_Menu(){
 
     clearscreen();
 
-    cout<<"1. Test Algorithms"<<endl
+    cout<<"Minimal Lenght Problem"<<endl
+        <<"-----------------------"<<endl<<endl
+        <<"1. Test Algorithms"<<endl
         <<"2. Best Case Times"<<endl
         <<"3. Medium Case Times"<<endl
         <<"4. Worst Case Times"<<endl
         <<"Select Option: ";
     cin>>option;
+
+    clearscreen();
 
     switch(option){
         case 1:
@@ -100,7 +104,9 @@ void Menu::TSP_Menu(){
 
     clearscreen();
 
-    cout<<"1. Test Random"<<endl
+    cout<<"Travel Salesman Problem"<<endl
+        <<"------------------------"<<endl<<endl
+        <<"1. Test Random"<<endl
         <<"2. Test from File"<<endl
         <<"Enter option: ";
     cin>>option;
@@ -109,7 +115,14 @@ void Menu::TSP_Menu(){
         cout<<"Introduce number of nodes: ";
         cin>>numnodes;
 
-        T_TSP.TestRandom(numnodes);
+        cout<<"Select Algorithm"<<endl
+            <<"1. Exhaustive"<<endl
+            <<"2. Greedy"<<endl
+            <<"Enter algorithm: ";
+        cin>>algorithm;
+
+
+        T_TSP.TestRandom(numnodes, algorithm);
     }
     else{
 

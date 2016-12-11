@@ -11,7 +11,7 @@ class Test_TSP
         Test_TSP();
 
         void TestFile(string file, int method);
-        void TestRandom(int numnodes);
+        void TestRandom(int numnodes, int method);
 };
 
 #endif // TEST_TSP_H

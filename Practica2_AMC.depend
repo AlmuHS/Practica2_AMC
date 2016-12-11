@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1481317622 source:/home/almu/Practica2_AMC/src/GenGraph.cpp
+1481461417 source:/home/almu/Practica2_AMC/src/GenGraph.cpp
 	"../include/GenGraph.h"
 
 1481317622 source:/home/almu/Practica2_AMC/src/Graph.cpp
@@ -11,13 +11,13 @@
 	"include/Test_TSP.h"
 	"include/Menu.h"
 
-1481228545 /home/almu/Practica2_AMC/include/GenGraph.h
+1481461409 /home/almu/Practica2_AMC/include/GenGraph.h
 	<iostream>
 	<utility>
 	<vector>
 	"Graph.h"
-	"QuickSort.h"
 	<fstream>
+	<algorithm>
 
 1481317622 /home/almu/Practica2_AMC/include/Graph.h
 	<map>
@@ -28,7 +28,7 @@
 	<set>
 	<cmath>
 
-1481317622 /home/almu/Practica2_AMC/include/MinLenghtProblem.h
+1481420296 /home/almu/Practica2_AMC/include/MinLenghtProblem.h
 	<istream>
 	<iostream>
 	<cmath>
@@ -37,18 +37,18 @@
 	"GenGraph.h"
 	<ctime>
 
-1481317884 source:/home/almu/Practica2_AMC/src/MinLenghtProblem.cpp
+1481461902 source:/home/almu/Practica2_AMC/src/MinLenghtProblem.cpp
 	"../include/MinLenghtProblem.h"
 
-1480262799 /home/almu/Practica2_AMC/include/QuickSort.h
+1481416928 /home/almu/Practica2_AMC/include/QuickSort.h
 	<algorithm>
 	<vector>
 	<utility>
 
-1480262799 source:/home/almu/Practica2_AMC/src/QuickSort.cpp
+1481416788 source:/home/almu/Practica2_AMC/src/QuickSort.cpp
 	"../include/QuickSort.h"
 
-1481232848 source:/home/almu/Practica2_AMC/src/TSPProblem.cpp
+1481421387 source:/home/almu/Practica2_AMC/src/TSPProblem.cpp
 	"../include/TSPProblem.h"
 
 1481228545 /home/almu/Practica2_AMC/include/TSPProblem.h
@@ -64,13 +64,13 @@
 	"MinLenghtProblem.h"
 	"Mtime.h"
 
-1481331563 /home/almu/Practica2_AMC/include/Test_TSP.h
+1481411282 /home/almu/Practica2_AMC/include/Test_TSP.h
 	"TSPProblem.h"
 
-1481327290 source:/home/almu/Practica2_AMC/src/Test_MLP.cpp
+1481462190 source:/home/almu/Practica2_AMC/src/Test_MLP.cpp
 	"../include/Test_MLP.h"
 
-1481334362 source:/home/almu/Practica2_AMC/src/Test_TSP.cpp
+1481461432 source:/home/almu/Practica2_AMC/src/Test_TSP.cpp
 	"../include/Test_TSP.h"
 
 1481317622 /home/almu/Practica2_AMC/include/Mtime.h
@@ -81,7 +81,7 @@
 1481282140 source:/home/almu/Practica2_AMC/src/Mtime.cpp
 	"../include/Mtime.h"
 
-1481332904 source:/home/almu/Practica2_AMC/src/Menu.cpp
+1481412362 source:/home/almu/Practica2_AMC/src/Menu.cpp
 	"Menu.h"
 
 1481328899 /home/almu/Practica2_AMC/include/Menu.h

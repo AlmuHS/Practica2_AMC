@@ -58,17 +58,23 @@ int MinLenghtProblem::SimpleSolution(int node_pair[2])
     return minimal;
 }
 
-int MinLenghtProblem::DCSolution()
+int MinLenghtProblem::DCSolution(int node_pair[2])
 {
     GenG.SortGraph();
     vector<int> nodelist = G.get_NodeList();
     int numnodes = G.get_numNodes();
     long minimal = 9999999999999;
     long new_minimal = 0;
+
+    node_pair[0] = 1;
+
     for(int i = 1; i < numnodes; i++){
         new_minimal = G.get_distance(nodelist[0], nodelist[i]);
         //cout<<"Distance "<<nodelist[0]<<" - "<<nodelist[i]<<": "<<new_minimal<<endl;
-        if(new_minimal < minimal) minimal = new_minimal;
+        if(new_minimal < minimal){
+            minimal = new_minimal;
+            node_pair[1] = i+1;
+        }
     }
     return minimal;
 }

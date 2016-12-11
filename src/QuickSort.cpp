@@ -20,7 +20,7 @@
 
 using namespace std;
 
-void QuickSort::quickSort(vector<pair<float, float> > arr, int start, int end)
+void QuickSort::quickSort(vector<pair<float, float> > &arr, int start, int end)
 {
     if (start < end)        //test for base case start == end
     {

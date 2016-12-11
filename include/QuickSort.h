@@ -28,7 +28,7 @@ using namespace std;
 class QuickSort
 {
     public:
-        void quickSort(vector<pair<float, float> >, int, int);
+        void quickSort(vector<pair<float, float> > &arr, int, int);
 
         int partition(vector<pair<float, float> >, int, int);
 

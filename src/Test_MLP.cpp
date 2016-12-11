@@ -23,17 +23,27 @@ void Test_MLP::RandomDemo(int n_nodes){
     int node_pair[2];
 
     GenG.Generate_graph(n_nodes);
+    GenG.show_graph();
+
     MLP.set_graph(GenG.getGraph());
     minimal_lenght = MLP.SimpleSolution(node_pair);
 
-    cout<<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl;
-    cout<<"The minimal lenght is "<<minimal_lenght<<endl;
+    cout<<endl<<"Exhaustive solution"<<endl
+        <<"--------------------"<<endl
+        <<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl
+        <<"The minimal lenght is "<<minimal_lenght<<endl<<endl;
 
     GenG.SortGraph();
     MLP.set_graph(GenG.getGraph());
-    minimal_lenght = MLP.DCSolution();
+    minimal_lenght = MLP.DCSolution(node_pair);
 
-    cout<<"The minimal lenght is "<<minimal_lenght<<endl;
+    cout<<"Divide and Conquer solution"<<endl
+        <<"----------------------------"<<endl;
+
+    GenG.show_graph();
+
+    cout<<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl
+        <<"The minimal lenght is "<<minimal_lenght<<endl<<endl;
 }
 
 #if defined _WIN32 || defined _WIN64
@@ -52,7 +62,7 @@ double Test_MLP::Search(Graph G, int method){
     }
     else{
         QueryPerformanceCounter(&t_ini);
-        MLP.DCSolution();
+        MLP.DCSolution(solution);
         QueryPerformanceCounter(&t_fin);
     }
 
@@ -75,7 +85,7 @@ double Test_MLP::Search(Graph G, int method){
     }
     else{
         t_ini = high_resolution_clock::now();
-        MLP.DCSolution();
+        MLP.DCSolution(solution);
         t_fin = high_resolution_clock::now();
     }
 
@@ -96,7 +106,9 @@ void Test_MLP::BestCase(int method){
 
     StartLenght = 10;
     increase = 5;
-    EndLenght = 30;
+    EndLenght = 50;
+
+    cout<<"size\ttime"<<endl;
 
     for(int j = StartLenght; j < EndLenght; j+=increase){
 
@@ -120,7 +132,7 @@ void Test_MLP::BestCase(int method){
 
         time = seconds/REPEAT;
 
-        cout<<time<<endl;
+        cout<<j<<"\t"<<time<<endl;
     }
 
 }
@@ -136,6 +148,8 @@ void Test_MLP::MediumCase(int method){
     increase = 10;
     EndLenght = 50;
 
+    cout<<"size\ttime"<<endl;
+
     for(int j = StartLenght; j < EndLenght; j+=increase){
 
         numnodes = j;
@@ -147,7 +161,7 @@ void Test_MLP::MediumCase(int method){
 
         time = seconds / REPEAT;
 
-        cout<<time<<endl;
+        cout<<j<<"\t"<<time<<endl;
     }
 }
 
@@ -163,6 +177,9 @@ void Test_MLP::WorstCase(int method){
     StartLenght = 10;
     increase = 10;
     EndLenght = 50;
+
+    cout<<"size\ttime"<<endl;
+
 
     for(int j = StartLenght; j < EndLenght; j += increase){
 
@@ -185,6 +202,6 @@ void Test_MLP::WorstCase(int method){
 
         time = seconds / REPEAT;
 
-        cout<<time<<endl;
+        cout<<j<<"\t"<<time<<endl;
     }
 }

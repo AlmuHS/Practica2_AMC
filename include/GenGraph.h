@@ -24,8 +24,8 @@
 #include<utility>
 #include<vector>
 #include "Graph.h"
-#include "QuickSort.h"
 #include <fstream>
+#include <algorithm>
 
 
 using namespace std;
@@ -34,7 +34,6 @@ class GenGraph
 {
     Graph G;
     vector<pair<float, float> > node_list;
-    QuickSort Q;
     ifstream file;
     ofstream fout;
     string file_name;
@@ -50,6 +49,7 @@ public:
     void SortGraph();
     void Generate_graph(int numnodes);
     void Generate_XSortedGraph();
+    void show_graph();
 };
 
 #endif // GENGRAPH_H

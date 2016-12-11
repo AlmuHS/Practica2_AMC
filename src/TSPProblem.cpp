@@ -61,10 +61,10 @@ int TSPProblem::SimpleSolution()
             else{
                 new_distance += G.get_distance(node_vector[i+1], node_vector[i]);
             }
-            cout<<node_vector[i]<<" - ";
-            new_solution.push(node_vector[i]);
+            //cout<<node_vector[i]<<" - ";
+            new_solution.push(node_vector[i] + 1);
         }//End for
-        cout<<new_distance<<endl<<endl;
+        //cout<<new_distance<<endl<<endl;
 
         if(new_distance < sum_distance)
         {

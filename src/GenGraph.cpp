@@ -64,10 +64,52 @@ void GenGraph::create_graph(){
     }
 }
 
+
 void GenGraph::xSort_nodelist(){
-    Q.quickSort(node_list, 0, node_list.size() - 1);
+    sort(node_list.begin(), node_list.end());
 }
 
+void GenGraph::SortGraph(){
+    xSort_nodelist();
+    create_graph();
+}
+
+
+void GenGraph::Generate_graph(int numnodes)
+{
+    pair<float, float> n1;
+
+
+
+    for(int i = 0; i < numnodes; i++)
+    {
+        n1.first = rand()%100000 + 100;
+        n1.second = 2*i + rand()%5000 + 50;
+
+        add_pair(n1);
+    }
+
+    create_graph();
+}
+
+void GenGraph::Generate_XSortedGraph()
+{
+    pair<float, float> n1;
+    cout<<"pos x\tpos y"<<endl;
+
+    for(int i = 0; i < 5; i++)
+    {
+        n1.first = log10(rand());
+        n1.second = sqrt(rand()/20);
+
+        cout<<n1.first<<"\t"<<n1.second<<"\t\t"<<endl;
+
+        add_pair(n1);
+    }
+
+    xSort_nodelist();
+    create_graph();
+}
 
 void GenGraph::GenGraphFromFile(){
     string line;
@@ -94,46 +136,11 @@ void GenGraph::GenGraphFromFile(){
 
     create_graph();}
 
-void GenGraph::SortGraph(){
-    xSort_nodelist();
-    create_graph();
-}
 
+void GenGraph::show_graph(){
+    cout<<"node\tpos x\tpos y"<<endl;
 
-void GenGraph::Generate_graph(int numnodes)
-{
-    pair<float, float> n1;
-
-    //cout<<"pos x\tpos y"<<endl;
-
-    for(int i = 0; i < numnodes; i++)
-    {
-        n1.first = rand()%100000 + 100;
-        n1.second = 2*i + rand()%5000 + 50;
-
-        //cout<<n1.first<<"\t"<<n1.second<<"\t\t"<<endl;
-
-        add_pair(n1);
+    for(unsigned int i = 0; i < node_list.size(); i++){
+        cout<<i+1<<"\t"<<node_list[i].first<<"\t"<<node_list[i].second<<"\t\t"<<endl;
     }
-
-    create_graph();
-}
-
-void GenGraph::Generate_XSortedGraph()
-{
-    pair<float, float> n1;
-    cout<<"pos x\tpos y"<<endl;
-
-    for(int i = 0; i < 5; i++)
-    {
-        n1.first = log10(rand());
-        n1.second = sqrt(rand()/20);
-
-        cout<<n1.first<<"\t"<<n1.second<<"\t\t"<<endl;
-
-        add_pair(n1);
-    }
-
-    xSort_nodelist();
-    create_graph();
 }
