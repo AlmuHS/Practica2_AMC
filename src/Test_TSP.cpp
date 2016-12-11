@@ -45,6 +45,7 @@ void Test_TSP::TestRandom(int numnodes, int method){
 void Test_TSP::TestFile(string file, int method){
     queue<int> solution;
     long min_distance;
+    string froute = file + "_route";
     ofstream fout;
 
     GenGraph GenG(file);
@@ -53,22 +54,37 @@ void Test_TSP::TestFile(string file, int method){
     TSP.GenSet();
 
 
-    if(method == 1)
+    if(method == 1){
         min_distance = TSP.SimpleSolution();
-    else
-         min_distance = TSP.GreedySolution();
+        froute += "Exhaustive.opt";
+    }
+    else{
+        min_distance = TSP.GreedySolution();
+        froute += "Greedy.opt";
+    }
+
+    fout.open(froute.c_str());
 
     solution = TSP.get_solution();
 
     cout<<"The minimal way is "<<endl;
     int sol_size = solution.size();
 
+    fout<<"NAME : "<<file<<".opt.tour"<<endl
+        <<"TYPE : TOUR"<<endl
+        <<"Dimension: "<<sol_size<<endl
+        <<"TOUR_SECTION"<<endl;
+
+
     for(int i = 0; i < sol_size; i++)
     {
         int node = solution.front();
         cout<<node<<" - ";
+        fout<<node<<endl;
 
         solution.pop();
     }
     cout<<endl<<"The minimal way lenght is "<<min_distance<<endl;
+
+    fout.close();
 }
