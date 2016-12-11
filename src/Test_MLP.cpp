@@ -101,6 +101,8 @@ void Test_MLP::BestCase(int method){
     pair<float, float> p;
     int solution[2];
     double seconds, time;
+    string filename = method + ".dat";
+    fstream fout(filename.c_str());
 
     cout<<"size\ttime"<<endl;
 
@@ -131,6 +133,7 @@ void Test_MLP::BestCase(int method){
         time = seconds/REPEAT;
 
         cout<<numnodes<<"\t"<<time<<endl;
+        fout<<numnodes<<"\t"<<time<<endl;
     }
 
 }
@@ -139,6 +142,8 @@ void Test_MLP::MediumCase(int method){
     GenGraph GenG;
     int solution[2];
     double seconds, time;
+    string filename = method + ".dat";
+    fstream fout(filename.c_str());
 
     cout<<"size\ttime"<<endl;
 
@@ -158,6 +163,7 @@ void Test_MLP::MediumCase(int method){
         time = seconds / REPEAT;
 
         cout<<numnodes<<"\t"<<time<<endl;
+        fout<<numnodes<<"\t"<<time<<endl;
     }
 }
 
@@ -169,6 +175,8 @@ void Test_MLP::WorstCase(int method){
     double seconds, time;
 
     cout<<"size\ttime"<<endl;
+    string filename = method + ".dat";
+    fstream fout(filename.c_str());
 
     for(int j = 0; j < 4; j++){
 
@@ -197,5 +205,6 @@ void Test_MLP::WorstCase(int method){
         time = seconds / REPEAT;
 
         cout<<numnodes<<"\t"<<time<<endl;
+        fout<<numnodes<<"\t"<<time<<endl;
     }
 }
