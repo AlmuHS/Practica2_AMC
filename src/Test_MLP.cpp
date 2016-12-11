@@ -2,7 +2,7 @@
 
 #define DC 2
 #define SIMPLE 1
-#define REPEAT 15
+#define REPEAT 7
 
 using namespace std;
 using namespace std::chrono;
@@ -66,7 +66,7 @@ double Test_MLP::Search(Graph G, int method){
         QueryPerformanceCounter(&t_fin);
     }
 
-    return (counter.performancecounter_diff(&t_fin, &t_ini)*1000000);
+    return (counter.performancecounter_diff(&t_fin, &t_ini)*1000);
 }
 
 #elif defined __linux__ || defined __unix__
@@ -89,7 +89,7 @@ double Test_MLP::Search(Graph G, int method){
         t_fin = high_resolution_clock::now();
     }
 
-    interval = duration_cast<duration<double>>(t_fin - t_ini)*1000;
+    interval = duration_cast<duration<double>>(t_fin - t_ini);
 
     return (interval.count()*1000000);
 }
@@ -102,17 +102,15 @@ void Test_MLP::BestCase(int method){
     int solution[2];
     double seconds, time;
 
-    int StartLenght, EndLenght, increase;
-
-    StartLenght = 10;
-    increase = 5;
-    EndLenght = 50;
-
     cout<<"size\ttime"<<endl;
 
-    for(int j = StartLenght; j < EndLenght; j+=increase){
+    for(int j = 0; j < 4; j++){
 
-        numnodes = j;
+        if(j == 0) numnodes = 200;
+        else if(j == 1) numnodes = 500;
+        else if(j == 2) numnodes = 1500;
+        else if(j == 3) numnodes = 5000;
+
 
         for(int i = 0; i < REPEAT; i++){
             p.first = 0.5;
@@ -132,7 +130,7 @@ void Test_MLP::BestCase(int method){
 
         time = seconds/REPEAT;
 
-        cout<<j<<"\t"<<time<<endl;
+        cout<<numnodes<<"\t"<<time<<endl;
     }
 
 }
@@ -142,17 +140,15 @@ void Test_MLP::MediumCase(int method){
     int solution[2];
     double seconds, time;
 
-    int StartLenght, EndLenght, increase;
-
-    StartLenght = 10;
-    increase = 10;
-    EndLenght = 50;
-
     cout<<"size\ttime"<<endl;
 
-    for(int j = StartLenght; j < EndLenght; j+=increase){
+    for(int j = 0; j < 4; j++){
 
-        numnodes = j;
+        if(j == 0) numnodes = 200;
+        else if(j == 1) numnodes = 500;
+        else if(j == 2) numnodes = 1500;
+        else if(j == 3) numnodes = 5000;
+
 
         for(int i = 0; i < REPEAT; i++){
             GenG.Generate_graph(numnodes);
@@ -161,7 +157,7 @@ void Test_MLP::MediumCase(int method){
 
         time = seconds / REPEAT;
 
-        cout<<j<<"\t"<<time<<endl;
+        cout<<numnodes<<"\t"<<time<<endl;
     }
 }
 
@@ -172,16 +168,14 @@ void Test_MLP::WorstCase(int method){
     pair<float, float> p;
     double seconds, time;
 
-    int StartLenght, EndLenght, increase;
-
-    StartLenght = 10;
-    increase = 10;
-    EndLenght = 50;
-
     cout<<"size\ttime"<<endl;
 
+    for(int j = 0; j < 4; j++){
 
-    for(int j = StartLenght; j < EndLenght; j += increase){
+        if(j == 0) numnodes = 200;
+        else if(j == 1) numnodes = 500;
+        else if(j == 2) numnodes = 1500;
+        else if(j == 3) numnodes = 5000;
 
         for(int i = 0; i < REPEAT; i++){
             p.first = 0.01;
@@ -202,6 +196,6 @@ void Test_MLP::WorstCase(int method){
 
         time = seconds / REPEAT;
 
-        cout<<j<<"\t"<<time<<endl;
+        cout<<numnodes<<"\t"<<time<<endl;
     }
 }
