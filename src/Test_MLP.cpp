@@ -46,6 +46,40 @@ void Test_MLP::RandomDemo(int n_nodes){
         <<"The minimal lenght is "<<minimal_lenght<<endl<<endl;
 }
 
+void Test_MLP::TestFile(string file, int method){
+    int node_pair[2];
+    int solution;
+    GenGraph GenG(file);
+
+    GenG.GenGraphFromFile();
+    GenG.show_graph();
+
+    if(method == 1){
+        MLP.set_graph(GenG.getGraph());
+        solution = MLP.SimpleSolution(node_pair);
+
+        cout<<endl<<"Exhaustive solution"<<endl
+            <<"--------------------"<<endl
+            <<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl
+            <<"The minimal lenght is "<<solution<<endl<<endl;
+    }
+    else{
+        GenG.SortGraph();
+        MLP.set_graph(GenG.getGraph());
+        solution = MLP.DCSolution(node_pair);
+
+        cout<<"Divide and Conquer solution"<<endl
+            <<"----------------------------"<<endl;
+
+        GenG.show_graph();
+
+        cout<<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl
+            <<"The minimal lenght is "<<solution<<endl<<endl;
+    }
+
+}
+
+
 #if defined _WIN32 || defined _WIN64
 
 double Test_MLP::Search(Graph G, int method){
@@ -217,3 +251,4 @@ void Test_MLP::WorstCase(int method){
     }
     fout.close();
 }
+

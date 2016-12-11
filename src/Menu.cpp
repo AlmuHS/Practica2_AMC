@@ -89,7 +89,7 @@ void Menu::MainMenu(){
 }
 
 void Menu::MLP_Menu(){
-    int numnodes, option, algorithm;
+    int numnodes, option, algorithm, num_file;
 
     clearscreen();
 
@@ -99,6 +99,7 @@ void Menu::MLP_Menu(){
         <<"2. Best Case Times"<<endl
         <<"3. Medium Case Times"<<endl
         <<"4. Worst Case Times"<<endl
+        <<"5. Test from File"<<endl
         <<"Select Option: ";
     cin>>option;
 
@@ -139,6 +140,53 @@ void Menu::MLP_Menu(){
             cin>>algorithm;
 
             T_MLP.WorstCase(algorithm);
+        break;
+
+        case 5:
+            cout<<"Select file: "<<endl
+                <<"1. berlin52"<<endl
+                <<"2. ch130"<<endl
+                <<"3. d493"<<endl
+                <<"Enter option: ";
+            cin>>num_file;
+
+            switch(num_file)
+            {
+            case 1:
+                cout<<"Select Algorithm"<<endl
+                    <<"1. Exhaustive"<<endl
+                    <<"2. Divide and Conquer"<<endl
+                    <<"Enter algorithm: ";
+                cin>>algorithm;
+
+                if(algorithm == 1) T_MLP.TestFile("berlin52.tsp", 1);
+                else T_MLP.TestFile("berlin52.tsp", 2);
+            break;
+
+            case 2:
+                cout<<"Select Algorithm"<<endl
+                    <<"1. Exhaustive"<<endl
+                    <<"2. Greedy"<<endl
+                    <<"Enter algorithm: ";
+                cin>>algorithm;
+
+                if(algorithm == 1) T_MLP.TestFile("ch130.tsp", 1);
+                else T_MLP.TestFile("ch130.tsp", 2);
+            break;
+
+            case 3:
+                cout<<"Select Algorithm"<<endl
+                    <<"1. Exhaustive"<<endl
+                    <<"2. Greedy"<<endl
+                    <<"Enter algorithm: ";
+                cin>>algorithm;
+
+                if(algorithm == 1) T_MLP.TestFile("d493.tsp", 1);
+                else T_MLP.TestFile("d493.tsp", 2);
+            break;
+        }//End switch
+
+
         break;
     }
 

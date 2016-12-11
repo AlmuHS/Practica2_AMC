@@ -26,6 +26,7 @@ class Test_MLP
         void BestCase(int method);
         void MediumCase(int method);
         void WorstCase(int method);
+        void TestFile(string file, int method);
 };
 
 #endif // TEST_MLP_H
