@@ -51,6 +51,7 @@ void Test_MLP::RandomDemo(int n_nodes){
 double Test_MLP::Search(Graph G, int method){
     Mtime counter;
     LARGE_INTEGER t_ini, t_fin;
+    int solution[2];
 
     MLP.set_graph(G);
 
@@ -101,8 +102,10 @@ void Test_MLP::BestCase(int method){
     pair<float, float> p;
     int solution[2];
     double seconds, time;
-    string filename = method + ".dat";
-    fstream fout(filename.c_str());
+    ofstream fout;
+
+    if(method == 1) fout.open("MLPExhaustive.dat");
+    else fout.open("MLPDivide&Conquer.dat");
 
     cout<<"size\ttime"<<endl;
 
@@ -135,6 +138,7 @@ void Test_MLP::BestCase(int method){
         cout<<numnodes<<"\t"<<time<<endl;
         fout<<numnodes<<"\t"<<time<<endl;
     }
+    fout.close();
 
 }
 
@@ -143,7 +147,10 @@ void Test_MLP::MediumCase(int method){
     int solution[2];
     double seconds, time;
     string filename = method + ".dat";
-    fstream fout(filename.c_str());
+    ofstream fout;
+
+    if(method == 1) fout.open("MLPExhaustive.dat");
+    else fout.open("MLPDivide&Conquer.dat");
 
     cout<<"size\ttime"<<endl;
 
@@ -165,6 +172,7 @@ void Test_MLP::MediumCase(int method){
         cout<<numnodes<<"\t"<<time<<endl;
         fout<<numnodes<<"\t"<<time<<endl;
     }
+    fout.close();
 }
 
 
@@ -176,7 +184,7 @@ void Test_MLP::WorstCase(int method){
 
     cout<<"size\ttime"<<endl;
     string filename = method + ".dat";
-    fstream fout(filename.c_str());
+    ofstream fout(filename.c_str());
 
     for(int j = 0; j < 4; j++){
 
@@ -207,4 +215,5 @@ void Test_MLP::WorstCase(int method){
         cout<<numnodes<<"\t"<<time<<endl;
         fout<<numnodes<<"\t"<<time<<endl;
     }
+    fout.close();
 }

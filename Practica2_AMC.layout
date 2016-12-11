@@ -2,34 +2,14 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="include/Test_MLP.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/Test_MLP.cpp" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="319" topLine="0" />
+			<Cursor1 position="3154" topLine="112" />
 		</Cursor>
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/MinLenghtProblem.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="957" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/Test_MLP.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="648" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="include/GenGraph.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="792" topLine="4" />
-		</Cursor>
-	</File>
-	<File name="include/Graph.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="904" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="src/Test_TSP.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1192" topLine="34" />
+			<Cursor1 position="1735" topLine="18" />
 		</Cursor>
 	</File>
 	<File name="include/MinLenghtProblem.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -37,24 +17,29 @@
 			<Cursor1 position="1202" topLine="5" />
 		</Cursor>
 	</File>
-	<File name="src/TSPProblem.cpp" open="1" top="1" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2406" topLine="79" />
-		</Cursor>
-	</File>
-	<File name="src/GenGraph.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1837" topLine="95" />
-		</Cursor>
-	</File>
-	<File name="src/MinLenghtProblem.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1978" topLine="24" />
-		</Cursor>
-	</File>
 	<File name="src/Menu.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1161" topLine="126" />
+			<Cursor1 position="564" topLine="81" />
+		</Cursor>
+	</File>
+	<File name="include/Test_MLP.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="205" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include/Graph.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="904" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="include/TSPProblem.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="912" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="include/Test_TSP.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="63" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src/Graph.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -62,14 +47,29 @@
 			<Cursor1 position="1275" topLine="19" />
 		</Cursor>
 	</File>
-	<File name="include/Test_TSP.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/Test_TSP.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="259" topLine="0" />
+			<Cursor1 position="1192" topLine="26" />
 		</Cursor>
 	</File>
-	<File name="include/TSPProblem.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/TSPProblem.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="912" topLine="9" />
+			<Cursor1 position="2406" topLine="82" />
+		</Cursor>
+	</File>
+	<File name="include/GenGraph.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="792" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="src/GenGraph.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1837" topLine="95" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="826" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

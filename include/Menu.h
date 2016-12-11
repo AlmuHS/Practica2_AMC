@@ -4,6 +4,12 @@
 #include "Test_MLP.h"
 #include "Test_TSP.h"
 
+#if defined _WIN32 || defined _WIN64
+    #include <windows.h>
+#elif defined __unix__ || defined __linux__
+    #include <unistd.h>
+    #include <term.h>
+#endif // defined
 
 class Menu
 {
