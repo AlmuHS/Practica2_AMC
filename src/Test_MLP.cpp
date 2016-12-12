@@ -148,8 +148,6 @@ void Test_MLP::BestCase(int method){
 
     for(int j = 0; j < 4; j++){
 
-        GenG = new GenGraph;
-
         if(j == 0) numnodes = 200;
         else if(j == 1) numnodes = 500;
         else if(j == 2) numnodes = 1500;
@@ -157,6 +155,8 @@ void Test_MLP::BestCase(int method){
 
 
         for(int i = 0; i < REPEAT; i++){
+            GenG = new GenGraph;
+
             p.first = 0.5;
             p.second = 1.2;
 
@@ -170,6 +170,8 @@ void Test_MLP::BestCase(int method){
             GenG->Generate_graph(numnodes - 2);
 
             seconds = Search(GenG->getGraph(), method);
+
+            delete GenG;
         }
 
         time = seconds/REPEAT;
@@ -177,7 +179,6 @@ void Test_MLP::BestCase(int method){
         cout<<numnodes<<"\t"<<time<<endl;
         fout<<numnodes<<"\t"<<time<<endl;
 
-        delete GenG;
     }
     fout.close();
 
@@ -187,7 +188,6 @@ void Test_MLP::MediumCase(int method){
     GenGraph *GenG;
     int solution[2];
     double seconds, time;
-    string filename = method + ".dat";
     ofstream fout;
 
     if(method == 1) fout.open("MLPExhaustive.dat");
@@ -196,9 +196,6 @@ void Test_MLP::MediumCase(int method){
     cout<<"size\ttime"<<endl;
 
     for(int j = 0; j < 4; j++){
-
-        GenG = new GenGraph;
-
         if(j == 0) numnodes = 200;
         else if(j == 1) numnodes = 500;
         else if(j == 2) numnodes = 1500;
@@ -206,16 +203,18 @@ void Test_MLP::MediumCase(int method){
 
 
         for(int i = 0; i < REPEAT; i++){
+            GenG = new GenGraph;
+
             GenG->Generate_graph(numnodes);
             seconds = Search(GenG->getGraph(), method);
+
+            delete GenG;
         }
 
         time = seconds / REPEAT;
 
         cout<<numnodes<<"\t"<<time<<endl;
         fout<<numnodes<<"\t"<<time<<endl;
-
-        delete GenG;
     }
     fout.close();
 }
@@ -226,21 +225,23 @@ void Test_MLP::WorstCase(int method){
     int solution[2];
     pair<float, float> p;
     double seconds, time;
+    ofstream fout;
+
 
     cout<<"size\ttime"<<endl;
-    string filename = method + ".dat";
-    ofstream fout(filename.c_str());
+    if(method == 1) fout.open("MLPExhaustive.dat");
+    else fout.open("MLPDivide&Conquer.dat");
+
 
     for(int j = 0; j < 4; j++){
-
-        GenG = new GenGraph;
-
         if(j == 0) numnodes = 200;
         else if(j == 1) numnodes = 500;
         else if(j == 2) numnodes = 1500;
         else if(j == 3) numnodes = 5000;
 
         for(int i = 0; i < REPEAT; i++){
+            GenG = new GenGraph;
+
             p.first = 0.01;
             p.second = 0.1;
 

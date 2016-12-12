@@ -35,6 +35,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Linker>
+			<Add option="-lncurses" />
+		</Linker>
 		<Unit filename="include/GenGraph.h" />
 		<Unit filename="include/Graph.h" />
 		<Unit filename="include/Menu.h" />
