@@ -32,7 +32,7 @@ using namespace std;
 
 class GenGraph
 {
-    Graph G;
+    Graph *G;
     vector<pair<float, float> > node_list;
     ifstream file;
     ofstream fout;
@@ -40,6 +40,7 @@ class GenGraph
 
 public:
     GenGraph(string file_n = "");
+    ~GenGraph();
     void add_pair(pair<float, float> p);
     void add_edge(node n1, node n2);
     void create_graph();

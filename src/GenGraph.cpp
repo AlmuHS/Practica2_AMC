@@ -25,16 +25,21 @@ GenGraph::GenGraph(string file_n): file(file_n.c_str(), ios::in)
 {
     //ctor
     file_name = file_n;
+    G = new Graph;
+}
+
+GenGraph::~GenGraph(){
+    delete G;
 }
 
 void GenGraph::add_edge(node n1, node n2){
     int distance = rint(sqrt(pow(n1.x - n2.x, 2) + pow(n1.y - n2.y, 2)));
 
-    G.set_distance(n1.n, n2.n, distance);
+    G->set_distance(n1.n, n2.n, distance);
 }
 
 Graph GenGraph::getGraph(){
-    return G;
+    return *G;
 }
 
 void GenGraph::add_pair(pair<float, float> p){
@@ -59,8 +64,8 @@ void GenGraph::create_graph(){
                 add_edge(n1, n2);
             }
         }
-        if((unsigned) G.get_numNodes() < node_list.size())
-            G.add_node(n1.n);
+        if((unsigned) G->get_numNodes() < node_list.size())
+            G->add_node(n1.n);
     }
 }
 

@@ -49,13 +49,12 @@ void Test_MLP::RandomDemo(int n_nodes){
 void Test_MLP::TestFile(string file, int method){
     int node_pair[2];
     int solution;
-    GenGraph GenG(file);
+    GenGraph *GenG = new GenGraph(file);
 
-    GenG.GenGraphFromFile();
-    GenG.show_graph();
+    GenG->GenGraphFromFile();
 
     if(method == 1){
-        MLP.set_graph(GenG.getGraph());
+        MLP.set_graph(GenG->getGraph());
         solution = MLP.SimpleSolution(node_pair);
 
         cout<<endl<<"Exhaustive solution"<<endl
@@ -64,18 +63,20 @@ void Test_MLP::TestFile(string file, int method){
             <<"The minimal lenght is "<<solution<<endl<<endl;
     }
     else{
-        GenG.SortGraph();
-        MLP.set_graph(GenG.getGraph());
+        GenG->SortGraph();
+        MLP.set_graph(GenG->getGraph());
         solution = MLP.DCSolution(node_pair);
 
         cout<<"Divide and Conquer solution"<<endl
             <<"----------------------------"<<endl;
 
-        GenG.show_graph();
+        GenG->show_graph();
 
         cout<<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl
             <<"The minimal lenght is "<<solution<<endl<<endl;
     }
+
+    delete GenG;
 
 }
 
@@ -132,7 +133,7 @@ double Test_MLP::Search(Graph G, int method){
 #endif // __linux__
 
 void Test_MLP::BestCase(int method){
-    GenGraph GenG;
+    GenGraph *GenG;
     pair<float, float> p;
     int solution[2];
     double seconds, time;
@@ -144,6 +145,8 @@ void Test_MLP::BestCase(int method){
     cout<<"size\ttime"<<endl;
 
     for(int j = 0; j < 4; j++){
+
+        GenG = new GenGraph;
 
         if(j == 0) numnodes = 200;
         else if(j == 1) numnodes = 500;
@@ -155,29 +158,31 @@ void Test_MLP::BestCase(int method){
             p.first = 0.5;
             p.second = 1.2;
 
-            GenG.add_pair(p);
+            GenG->add_pair(p);
 
             p.first = 0.05;
             p.second = 0.2;
 
-            GenG.add_pair(p);
+            GenG->add_pair(p);
 
-            GenG.Generate_graph(numnodes - 2);
+            GenG->Generate_graph(numnodes - 2);
 
-            seconds = Search(GenG.getGraph(), method);
+            seconds = Search(GenG->getGraph(), method);
         }
 
         time = seconds/REPEAT;
 
         cout<<numnodes<<"\t"<<time<<endl;
         fout<<numnodes<<"\t"<<time<<endl;
+
+        delete GenG;
     }
     fout.close();
 
 }
 
 void Test_MLP::MediumCase(int method){
-    GenGraph GenG;
+    GenGraph *GenG;
     int solution[2];
     double seconds, time;
     string filename = method + ".dat";
@@ -190,6 +195,8 @@ void Test_MLP::MediumCase(int method){
 
     for(int j = 0; j < 4; j++){
 
+        GenG = new GenGraph;
+
         if(j == 0) numnodes = 200;
         else if(j == 1) numnodes = 500;
         else if(j == 2) numnodes = 1500;
@@ -197,21 +204,23 @@ void Test_MLP::MediumCase(int method){
 
 
         for(int i = 0; i < REPEAT; i++){
-            GenG.Generate_graph(numnodes);
-            seconds = Search(GenG.getGraph(), method);
+            GenG->Generate_graph(numnodes);
+            seconds = Search(GenG->getGraph(), method);
         }
 
         time = seconds / REPEAT;
 
         cout<<numnodes<<"\t"<<time<<endl;
         fout<<numnodes<<"\t"<<time<<endl;
+
+        delete GenG;
     }
     fout.close();
 }
 
 
 void Test_MLP::WorstCase(int method){
-    GenGraph GenG;
+    GenGraph *GenG;
     int solution[2];
     pair<float, float> p;
     double seconds, time;
@@ -222,6 +231,8 @@ void Test_MLP::WorstCase(int method){
 
     for(int j = 0; j < 4; j++){
 
+        GenG = new GenGraph;
+
         if(j == 0) numnodes = 200;
         else if(j == 1) numnodes = 500;
         else if(j == 2) numnodes = 1500;
@@ -231,17 +242,19 @@ void Test_MLP::WorstCase(int method){
             p.first = 0.01;
             p.second = 0.1;
 
-            GenG.add_pair(p);
+            GenG->add_pair(p);
 
-            GenG.Generate_graph(numnodes - 2);
+            GenG->Generate_graph(numnodes - 2);
 
             p.first = 0.02;
             p.second = 0.5;
 
-            GenG.add_pair(p);
+            GenG->add_pair(p);
 
-            GenG.create_graph();
-            seconds = Search(GenG.getGraph(), method);
+            GenG->create_graph();
+            seconds = Search(GenG->getGraph(), method);
+
+            delete GenG;
         }
 
         time = seconds / REPEAT;

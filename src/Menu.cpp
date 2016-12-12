@@ -166,7 +166,7 @@ void Menu::MLP_Menu(){
             case 2:
                 cout<<"Select Algorithm"<<endl
                     <<"1. Exhaustive"<<endl
-                    <<"2. Greedy"<<endl
+                    <<"2. Divide and Conquer"<<endl
                     <<"Enter algorithm: ";
                 cin>>algorithm;
 
@@ -177,7 +177,7 @@ void Menu::MLP_Menu(){
             case 3:
                 cout<<"Select Algorithm"<<endl
                     <<"1. Exhaustive"<<endl
-                    <<"2. Greedy"<<endl
+                    <<"2. Divide and Conquer"<<endl
                     <<"Enter algorithm: ";
                 cin>>algorithm;
 
