@@ -10,13 +10,13 @@ void Test_TSP::TestRandom(int numnodes, int method){
     long min_distance;
     ofstream fout;
 
-    GenGraph GenG;
-    GenG.Generate_graph(numnodes);
+    GenGraph *GenG = new GenGraph;
+    GenG->Generate_graph(numnodes);
 
-    GenG.show_graph();
+    GenG->show_graph();
 
 
-    TSP.setGraph(GenG.getGraph());
+    TSP.setGraph(GenG->getGraph());
     TSP.GenSet();
 
     if(method == 1)
@@ -39,7 +39,7 @@ void Test_TSP::TestRandom(int numnodes, int method){
     }
     cout<<endl<<"The minimal way lenght is "<<min_distance<<endl;
 
-
+    delete GenG;
 }
 
 void Test_TSP::TestFile(string file, int method){
@@ -48,9 +48,9 @@ void Test_TSP::TestFile(string file, int method){
     string froute = file + "_route";
     ofstream fout;
 
-    GenGraph GenG(file);
-    GenG.GenGraphFromFile();
-    TSP.setGraph(GenG.getGraph());
+    GenGraph *GenG = new GenGraph(file);
+    GenG->GenGraphFromFile();
+    TSP.setGraph(GenG->getGraph());
     TSP.GenSet();
 
 
@@ -87,4 +87,6 @@ void Test_TSP::TestFile(string file, int method){
     cout<<endl<<"The minimal way lenght is "<<min_distance<<endl;
 
     fout.close();
+
+    delete GenG;
 }
