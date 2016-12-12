@@ -27,7 +27,7 @@ TSPProblem::TSPProblem()
 }
 
 
-void TSPProblem::setGraph(Graph G)
+void TSPProblem::setGraph(const Graph &G)
 {
     this->G = G;
 }

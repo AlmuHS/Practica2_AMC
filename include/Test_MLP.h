@@ -22,7 +22,7 @@ class Test_MLP
         Test_MLP();
         void set_numnodes(int n_nodes);
         void RandomDemo(int n_nodes);
-        double Search(Graph G, int method);
+        double Search(const Graph &G, int method);
         void BestCase(int method);
         void MediumCase(int method);
         void WorstCase(int method);

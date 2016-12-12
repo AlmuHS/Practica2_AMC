@@ -39,7 +39,7 @@ class TSPProblem
     public:
         TSPProblem();
         void GenSet();
-        void setGraph(Graph G);
+        void setGraph(const Graph &G);
         queue<int> get_solution();
 
         int SimpleSolution();

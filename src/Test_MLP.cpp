@@ -18,14 +18,14 @@ void Test_MLP::set_numnodes(int n_nodes){
 
 
 void Test_MLP::RandomDemo(int n_nodes){
-    GenGraph GenG;
+    GenGraph *GenG = new GenGraph;
     long minimal_lenght;
     int node_pair[2];
 
-    GenG.Generate_graph(n_nodes);
-    GenG.show_graph();
+    GenG->Generate_graph(n_nodes);
+    GenG->show_graph();
 
-    MLP.set_graph(GenG.getGraph());
+    MLP.set_graph(GenG->getGraph());
     minimal_lenght = MLP.SimpleSolution(node_pair);
 
     cout<<endl<<"Exhaustive solution"<<endl
@@ -33,17 +33,19 @@ void Test_MLP::RandomDemo(int n_nodes){
         <<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl
         <<"The minimal lenght is "<<minimal_lenght<<endl<<endl;
 
-    GenG.SortGraph();
-    MLP.set_graph(GenG.getGraph());
+    GenG->SortGraph();
+    MLP.set_graph(GenG->getGraph());
     minimal_lenght = MLP.DCSolution(node_pair);
 
     cout<<"Divide and Conquer solution"<<endl
         <<"----------------------------"<<endl;
 
-    GenG.show_graph();
+    GenG->show_graph();
 
     cout<<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl
         <<"The minimal lenght is "<<minimal_lenght<<endl<<endl;
+
+    delete GenG;
 }
 
 void Test_MLP::TestFile(string file, int method){
@@ -83,7 +85,7 @@ void Test_MLP::TestFile(string file, int method){
 
 #if defined _WIN32 || defined _WIN64
 
-double Test_MLP::Search(Graph G, int method){
+double Test_MLP::Search(const Graph &G, int method){
     Mtime counter;
     LARGE_INTEGER t_ini, t_fin;
     int solution[2];
@@ -107,7 +109,7 @@ double Test_MLP::Search(Graph G, int method){
 
 #elif defined __linux__ || defined __unix__
 
-double Test_MLP::Search(Graph G, int method){
+double Test_MLP::Search(const Graph &G, int method){
     duration<double> interval;
     int solution[2];
     high_resolution_clock::time_point t_ini, t_fin;

@@ -33,11 +33,12 @@ class MinLenghtProblem
 {
 private:
     Graph G;
-    GenGraph GenG;
+    GenGraph *GenG;
 
 public:
     MinLenghtProblem();
-    void set_graph(Graph G);
+    ~MinLenghtProblem();
+    void set_graph(const Graph &G);
     int SimpleSolution(int node_pair[2]);
     int DCSolution(int node_pair[2]);
 };

@@ -22,9 +22,14 @@ using namespace std;
 
 MinLenghtProblem::MinLenghtProblem(){
     srand(time(0));
+    GenG = new GenGraph;
 }
 
-void MinLenghtProblem::set_graph(Graph G){
+MinLenghtProblem::~MinLenghtProblem(){
+    delete GenG;
+}
+
+void MinLenghtProblem::set_graph(const Graph &G){
     this->G = G;
 }
 
@@ -60,7 +65,7 @@ int MinLenghtProblem::SimpleSolution(int node_pair[2])
 
 int MinLenghtProblem::DCSolution(int node_pair[2])
 {
-    GenG.SortGraph();
+    GenG->SortGraph();
     vector<int> nodelist = G.get_NodeList();
     int numnodes = G.get_numNodes();
     long minimal = 9999999999999;
