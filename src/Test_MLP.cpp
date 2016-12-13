@@ -139,10 +139,10 @@ void Test_MLP::BestCase(int method){
     pair<float, float> p;
     int solution[2];
     double seconds, time;
-    ofstream fout;
+    vector<double> time_list;
+    char option;
 
-    if(method == 1) fout.open("MLPExhaustive.dat");
-    else fout.open("MLPDivide&Conquer.dat");
+
 
     cout<<"size\ttime"<<endl;
 
@@ -176,11 +176,28 @@ void Test_MLP::BestCase(int method){
 
         time = seconds/REPEAT;
 
-        cout<<numnodes<<"\t"<<time<<endl;
-        fout<<numnodes<<"\t"<<time<<endl;
+        time_list.push_back(time);
 
+        cout<<numnodes<<"\t"<<time<<endl;
     }
-    fout.close();
+
+    cout<<"Do you want save times on a file?(y/n): ";
+    cin>>option;
+
+    if(option == 'y'){
+        ofstream fout;
+        if(method == 1) fout.open("MLPExhaustive_Best.dat");
+        else fout.open("MLPDivide&Conquer_Best.dat");
+
+        fout<<"200"<<"\t"<<time_list[0]<<endl;
+        fout<<"500"<<"\t"<<time_list[1]<<endl;
+        fout<<"1500"<<"\t"<<time_list[2]<<endl;
+        fout<<"5000"<<"\t"<<time_list[3]<<endl;
+
+        fout.close();
+    }
+
+
 
 }
 
@@ -188,10 +205,9 @@ void Test_MLP::MediumCase(int method){
     GenGraph *GenG;
     int solution[2];
     double seconds, time;
-    ofstream fout;
+    vector<double> time_list;
+    char option;
 
-    if(method == 1) fout.open("MLPExhaustive.dat");
-    else fout.open("MLPDivide&Conquer.dat");
 
     cout<<"size\ttime"<<endl;
 
@@ -214,9 +230,27 @@ void Test_MLP::MediumCase(int method){
         time = seconds / REPEAT;
 
         cout<<numnodes<<"\t"<<time<<endl;
-        fout<<numnodes<<"\t"<<time<<endl;
+        time_list.push_back(time);
     }
-    fout.close();
+
+    cout<<"Do you want save times on a file?(y/n): ";
+    cin>>option;
+
+    if(option == 'y'){
+        ofstream fout;
+
+        if(method == 1) fout.open("MLPExhaustive_Medium.dat");
+        else fout.open("MLPDivide&Conquer_Medium.dat");
+
+        fout<<"200"<<"\t"<<time_list[0]<<endl;
+        fout<<"500"<<"\t"<<time_list[1]<<endl;
+        fout<<"1500"<<"\t"<<time_list[2]<<endl;
+        fout<<"5000"<<"\t"<<time_list[3]<<endl;
+
+        fout.close();
+    }
+
+
 }
 
 
@@ -225,13 +259,11 @@ void Test_MLP::WorstCase(int method){
     int solution[2];
     pair<float, float> p;
     double seconds, time;
-    ofstream fout;
+    vector<double> time_list;
+    char option;
 
 
     cout<<"size\ttime"<<endl;
-    if(method == 1) fout.open("MLPExhaustive.dat");
-    else fout.open("MLPDivide&Conquer.dat");
-
 
     for(int j = 0; j < 4; j++){
         if(j == 0) numnodes = 200;
@@ -242,12 +274,12 @@ void Test_MLP::WorstCase(int method){
         for(int i = 0; i < REPEAT; i++){
             GenG = new GenGraph;
 
+            GenG->Generate_graph(numnodes - 2);
+
             p.first = 0.01;
             p.second = 0.1;
 
             GenG->add_pair(p);
-
-            GenG->Generate_graph(numnodes - 2);
 
             p.first = 0.02;
             p.second = 0.5;
@@ -263,8 +295,24 @@ void Test_MLP::WorstCase(int method){
         time = seconds / REPEAT;
 
         cout<<numnodes<<"\t"<<time<<endl;
-        fout<<numnodes<<"\t"<<time<<endl;
+        time_list.push_back(time);
     }
-    fout.close();
+
+    cout<<"Do you want save times on a file?(y/n): ";
+    cin>>option;
+
+    if(option == 'y'){
+        ofstream fout;
+
+        if(method == 1) fout.open("MLPExhaustive_Worst.dat");
+        else fout.open("MLPDivide&Conquer_Worst.dat");
+
+        fout<<"200"<<"\t"<<time_list[0]<<endl;
+        fout<<"500"<<"\t"<<time_list[1]<<endl;
+        fout<<"1500"<<"\t"<<time_list[2]<<endl;
+        fout<<"5000"<<"\t"<<time_list[3]<<endl;
+
+        fout.close();
+    }
 }
 
