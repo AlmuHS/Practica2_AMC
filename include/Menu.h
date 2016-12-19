@@ -22,6 +22,9 @@ class Menu
         void MainMenu();
         void MLP_Menu();
         void TSP_Menu();
+        int MLP_AlgorithmMenu();
+        int TSP_AlgorithmMenu();
+        string FileMenu();
         void clearscreen();
 };
 

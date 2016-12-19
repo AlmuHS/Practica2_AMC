@@ -88,8 +88,68 @@ void Menu::MainMenu(){
     while(option != 3);
 }
 
+int Menu::MLP_AlgorithmMenu(){
+    int algorithm;
+
+    cout<<"Select algorithm: "<<endl
+        <<"1. Simple"<<endl
+        <<"2. Divide and Conquer"<<endl
+        <<"Enter algorithm: ";
+    cin>>algorithm;
+
+    return algorithm;
+}
+
+int Menu::TSP_AlgorithmMenu(){
+    int algorithm;
+
+    cout<<"Select algorithm: "<<endl
+        <<"1. Simple"<<endl
+        <<"2. Greedy"<<endl
+        <<"Enter algorithm: ";
+    cin>>algorithm;
+
+    return algorithm;
+}
+
+string Menu::FileMenu(){
+    string filename;
+    int num_file;
+
+    cout<<"Select file: "<<endl
+        <<"1. berlin52"<<endl
+        <<"2. ch130"<<endl
+        <<"3. d493"<<endl
+        <<"4. Other"<<endl
+        <<"Enter option: ";
+    cin>>num_file;
+
+    switch(num_file){
+        case 1:
+            filename = "berlin52.tsp";
+        break;
+
+        case 2:
+            filename = "ch130.tsp";
+        break;
+
+        case 3:
+            filename = "d493.tsp";
+        break;
+
+        case 4:
+            cout<<"Enter file path: ";
+            cin>>filename;
+        break;
+    }
+
+    return filename;
+
+}
+
 void Menu::MLP_Menu(){
-    int numnodes, option, algorithm, num_file;
+    int numnodes, option, algorithm;
+    string filename;
 
     clearscreen();
 
@@ -113,88 +173,34 @@ void Menu::MLP_Menu(){
         break;
 
         case 2:
-            cout<<"Select algorithm: "<<endl
-                <<"1. Simple"<<endl
-                <<"2. Divide and Conquer"<<endl
-                <<"Enter algorithm: ";
-            cin>>algorithm;
-
+            algorithm = MLP_AlgorithmMenu();
             T_MLP.BestCase(algorithm);
         break;
 
         case 3:
-            cout<<"Select algorithm: "<<endl
-                <<"1. Simple"<<endl
-                <<"2. Divide and Conquer"<<endl
-                <<"Enter algorithm: ";
-            cin>>algorithm;
-
+            algorithm = MLP_AlgorithmMenu();
             T_MLP.MediumCase(algorithm);
         break;
 
         case 4:
-            cout<<"Select algorithm: "<<endl
-                <<"1. Simple"<<endl
-                <<"2. Divide and Conquer"<<endl
-                <<"Enter algorithm: ";
-            cin>>algorithm;
-
+            algorithm = MLP_AlgorithmMenu();
             T_MLP.WorstCase(algorithm);
         break;
 
         case 5:
-            cout<<"Select file: "<<endl
-                <<"1. berlin52"<<endl
-                <<"2. ch130"<<endl
-                <<"3. d493"<<endl
-                <<"Enter option: ";
-            cin>>num_file;
+            filename = FileMenu();
 
-            switch(num_file)
-            {
-            case 1:
-                cout<<"Select Algorithm"<<endl
-                    <<"1. Exhaustive"<<endl
-                    <<"2. Divide and Conquer"<<endl
-                    <<"Enter algorithm: ";
-                cin>>algorithm;
+            algorithm = MLP_AlgorithmMenu();
 
-                if(algorithm == 1) T_MLP.TestFile("berlin52.tsp", 1);
-                else T_MLP.TestFile("berlin52.tsp", 2);
-            break;
-
-            case 2:
-                cout<<"Select Algorithm"<<endl
-                    <<"1. Exhaustive"<<endl
-                    <<"2. Divide and Conquer"<<endl
-                    <<"Enter algorithm: ";
-                cin>>algorithm;
-
-                if(algorithm == 1) T_MLP.TestFile("ch130.tsp", 1);
-                else T_MLP.TestFile("ch130.tsp", 2);
-            break;
-
-            case 3:
-                cout<<"Select Algorithm"<<endl
-                    <<"1. Exhaustive"<<endl
-                    <<"2. Divide and Conquer"<<endl
-                    <<"Enter algorithm: ";
-                cin>>algorithm;
-
-                if(algorithm == 1) T_MLP.TestFile("d493.tsp", 1);
-                else T_MLP.TestFile("d493.tsp", 2);
-            break;
-        }//End switch
-
+            T_MLP.TestFile(filename, algorithm);
 
         break;
     }
-
-
 }
 
 void Menu::TSP_Menu(){
-    int num_file, algorithm, option, numnodes;
+    int algorithm, option, numnodes;
+    string filename;
 
     clearscreen();
 
@@ -205,62 +211,23 @@ void Menu::TSP_Menu(){
         <<"Enter option: ";
     cin>>option;
 
+    clearscreen();
+
     if(option == 1){
         cout<<"Introduce number of nodes: ";
         cin>>numnodes;
 
-        cout<<"Select Algorithm"<<endl
-            <<"1. Exhaustive"<<endl
-            <<"2. Greedy"<<endl
-            <<"Enter algorithm: ";
-        cin>>algorithm;
+        algorithm = TSP_AlgorithmMenu();
 
 
         T_TSP.TestRandom(numnodes, algorithm);
     }
     else{
 
-        cout<<"Select file: "<<endl
-            <<"1. berlin52"<<endl
-            <<"2. ch130"<<endl
-            <<"3. d493"<<endl
-            <<"Enter option: ";
-        cin>>num_file;
+        filename = FileMenu();
 
-        switch(num_file)
-        {
-            case 1:
-                cout<<"Select Algorithm"<<endl
-                    <<"1. Exhaustive"<<endl
-                    <<"2. Greedy"<<endl
-                    <<"Enter algorithm: ";
-                cin>>algorithm;
+        algorithm = TSP_AlgorithmMenu();
 
-                if(algorithm == 1) T_TSP.TestFile("berlin52.tsp", 1);
-                else T_TSP.TestFile("berlin52.tsp", 2);
-            break;
-
-            case 2:
-                cout<<"Select Algorithm"<<endl
-                    <<"1. Exhaustive"<<endl
-                    <<"2. Greedy"<<endl
-                    <<"Enter algorithm: ";
-                cin>>algorithm;
-
-                if(algorithm == 1) T_TSP.TestFile("ch130.tsp", 1);
-                else T_TSP.TestFile("ch130.tsp", 2);
-            break;
-
-            case 3:
-                cout<<"Select Algorithm"<<endl
-                    <<"1. Exhaustive"<<endl
-                    <<"2. Greedy"<<endl
-                    <<"Enter algorithm: ";
-                cin>>algorithm;
-
-                if(algorithm == 1) T_TSP.TestFile("d493.tsp", 1);
-                else T_TSP.TestFile("d493.tsp", 2);
-            break;
-        }//End switch
+        T_TSP.TestFile(filename, algorithm);
     }//End else
 }
