@@ -20,7 +20,6 @@
     along with Practica2_AMC.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #ifndef GRAPH_H
 #define GRAPH_H
 
@@ -31,29 +30,43 @@
 
 using namespace std;
 
-struct node{
-    int n;
-    float x;
-    float y;
-};
-
+/*
+*This class implements a generic Graph using a distance matrix
+*Each matrix position contains the distance between two points, indicated with row and column number
+*
+*/
 
 class Graph
 {
     private:
-        int numNodes;
-        int maxNodes;
+        int numNodes;//Current number of nodes
+        int maxNodes;//Maximal number of nodes in the Graph
 
-        map<int, map<int,int> > adjacency_matrix;
+        map<int, map<int,int> > adjacency_matrix;//Distance matrix
         vector<int> node_list;
 
     public:
+	/*Default constructor
+	 *Includes a parameter to set initial capacity, setted by default to 100 positions
+	 */
         Graph(int capacity = 100);
+	
+	//Copy constructor
         Graph(const Graph &G);
+	
+	//Insert new node in the Graph
         void add_node(int n1);
+
+	//Get distance between to nodes of the graph
         int get_distance(int node1, int node2);
+
+	//Update distance between two nodes
         void set_distance(int node1, int node2, int distance);
+
+	//Return current number of nodes
         int get_numNodes();
+
+	//Get graph's node list
         vector<int> get_NodeList();
 };
 

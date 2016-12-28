@@ -20,29 +20,29 @@ void Test_MLP::set_numnodes(int n_nodes){
 void Test_MLP::RandomDemo(int n_nodes){
     GenGraph *GenG = new GenGraph;
     long minimal_lenght;
-    int node_pair[2];
+    int node_pair1[2], node_pair2[2];
 
     GenG->Generate_graph(n_nodes);
     GenG->show_graph();
 
     MLP.set_graph(GenG->getGraph());
-    minimal_lenght = MLP.SimpleSolution(node_pair);
+    minimal_lenght = MLP.SimpleSolution(node_pair1);
 
     cout<<endl<<"Exhaustive solution"<<endl
         <<"--------------------"<<endl
-        <<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl
+        <<"The minimal lenght points are: "<<node_pair1[0]<<" and "<<node_pair1[1]<<endl
         <<"The minimal lenght is "<<minimal_lenght<<endl<<endl;
 
     GenG->SortGraph();
     MLP.set_graph(GenG->getGraph());
-    minimal_lenght = MLP.DCSolution(node_pair);
+    minimal_lenght = MLP.DCSolution(node_pair2);
 
     cout<<"Divide and Conquer solution"<<endl
         <<"----------------------------"<<endl;
 
     GenG->show_graph();
 
-    cout<<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl
+    cout<<"The minimal lenght points are: "<<node_pair2[0]<<" and "<<node_pair2[1]<<endl
         <<"The minimal lenght is "<<minimal_lenght<<endl<<endl;
 
     delete GenG;

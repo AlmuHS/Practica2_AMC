@@ -149,3 +149,7 @@ void GenGraph::show_graph(){
         cout<<i+1<<"\t"<<node_list[i].first<<"\t"<<node_list[i].second<<"\t\t"<<endl;
     }
 }
+
+vector<pair<float, float> > GenGraph::getPairList(){
+     return node_list;
+}

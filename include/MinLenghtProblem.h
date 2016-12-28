@@ -18,6 +18,11 @@
     along with Practica2_AMC.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/*
+*This class implements two algorithms to solve the minimal lenght pair problem
+*using Simple (exhaustive) solution and Divide and Conquer solution
+*/
+
 
 #ifndef MINLENGHTPROBLEM_H
 #define MINLENGHTPROBLEM_H
@@ -36,11 +41,24 @@ private:
     GenGraph *GenG;
 
 public:
+	//Constructor
     MinLenghtProblem();
+
+	//Destructor
     ~MinLenghtProblem();
+
+	//set a graph from parameter
     void set_graph(const Graph &G);
+
+	//Execute exhaustive MLP algorithm
     int SimpleSolution(int node_pair[2]);
+
+	//Main method to recursive DC algorithm
     int DCSolution(int node_pair[2]);
+
+	//Recursive method to DC algorithm
+    int DCSolution();
+
 };
 
 #endif // MINLENGHTPROBLEM_H

@@ -16,7 +16,6 @@
 */
 
 
-
 #ifndef GENGRAPH_H
 #define GENGRAPH_H
 
@@ -30,27 +29,63 @@
 
 using namespace std;
 
+struct node{
+    int n;
+    float x;
+    float y;
+};
+
+/*
+*This class allow generates a fully connected Graph from diferents way inputs
+*Also allows update a previously generated graph, and return the results
+*/
+
 class GenGraph
 {
-    Graph *G;
-    vector<pair<float, float> > node_list;
-    ifstream file;
-    ofstream fout;
-    string file_name;
+	Graph *G; //Pointer to Graph object
+    vector<pair<float, float> > node_list; //Node list to generate Graph
+    ifstream file; //Input file
+    string file_name;//Input file's name
 
 public:
+	//Constructor
     GenGraph(string file_n = "");
+
+	//Destructor
     ~GenGraph();
+
+	//insert a new pair in the graph
     void add_pair(pair<float, float> p);
+
+	//Update distances between two nodes
     void add_edge(node n1, node n2);
+
+	//Generate a new Graph from nodelist
     void create_graph();
+
+	//Generates a new graph from a input nodes file
     void GenGraphFromFile();
+
+	//Sort nodelist using x coordinates from lowest to highest
     void xSort_nodelist();
+
+	//Return Graph
     Graph getGraph();
+
+	/*Sort an already generated graph using x coordinates
+	From lowest to highest*/
     void SortGraph();
+
+	//Generates a new fully random graph
     void Generate_graph(int numnodes);
+
+	//Generate a new random Graph, previously sorting nodelist
     void Generate_XSortedGraph();
+
+	//Show node list in screen
     void show_graph();
+
+    vector<pair<float, float> > getPairList();
 };
 
 #endif // GENGRAPH_H

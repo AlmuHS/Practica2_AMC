@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1481569393 source:/home/almu/Practica2_AMC/src/GenGraph.cpp
+1482876960 source:/home/almu/Practica2_AMC/src/GenGraph.cpp
 	"../include/GenGraph.h"
 
 1481317622 source:/home/almu/Practica2_AMC/src/Graph.cpp
@@ -10,7 +10,7 @@
 	<iostream>
 	"include/Menu.h"
 
-1481569393 /home/almu/Practica2_AMC/include/GenGraph.h
+1482883943 /home/almu/Practica2_AMC/include/GenGraph.h
 	<iostream>
 	<utility>
 	<vector>
@@ -18,7 +18,7 @@
 	<fstream>
 	<algorithm>
 
-1481500799 /home/almu/Practica2_AMC/include/Graph.h
+1482611692 /home/almu/Practica2_AMC/include/Graph.h
 	<map>
 	<set>
 	<vector>
@@ -27,7 +27,7 @@
 	<set>
 	<cmath>
 
-1481572965 /home/almu/Practica2_AMC/include/MinLenghtProblem.h
+1482882904 /home/almu/Practica2_AMC/include/MinLenghtProblem.h
 	<istream>
 	<iostream>
 	<cmath>
@@ -36,7 +36,7 @@
 	"GenGraph.h"
 	<ctime>
 
-1481589811 source:/home/almu/Practica2_AMC/src/MinLenghtProblem.cpp
+1482866231 source:/home/almu/Practica2_AMC/src/MinLenghtProblem.cpp
 	"../include/MinLenghtProblem.h"
 
 1481416928 /home/almu/Practica2_AMC/include/QuickSort.h
@@ -56,7 +56,7 @@
 	<set>
 	<queue>
 
-1481572037 /home/almu/Practica2_AMC/include/Test_MLP.h
+1482354243 /home/almu/Practica2_AMC/include/Test_MLP.h
 	<ctime>
 	<chrono>
 	"GenGraph.h"
@@ -67,7 +67,7 @@
 1481500799 /home/almu/Practica2_AMC/include/Test_TSP.h
 	"TSPProblem.h"
 
-1481663525 source:/home/almu/Practica2_AMC/src/Test_MLP.cpp
+1482863285 source:/home/almu/Practica2_AMC/src/Test_MLP.cpp
 	"../include/Test_MLP.h"
 
 1481569393 source:/home/almu/Practica2_AMC/src/Test_TSP.cpp
@@ -81,7 +81,7 @@
 1481500799 source:/home/almu/Practica2_AMC/src/Mtime.cpp
 	"../include/Mtime.h"
 
-1481569393 source:/home/almu/Practica2_AMC/src/Menu.cpp
+1482176804 source:/home/almu/Practica2_AMC/src/Menu.cpp
 	"../include/Menu.h"
 
 1482176334 /home/almu/Practica2_AMC/include/Menu.h
@@ -90,4 +90,40 @@
 	<windows.h>
 	<unistd.h>
 	<term.h>
+
+1473803865 /home/almu/Practica2_AMC/include/qcustomplot.h
+	<QtCore/qglobal.h>
+	<QtCore/QObject>
+	<QtCore/QPointer>
+	<QtCore/QSharedPointer>
+	<QtCore/QTimer>
+	<QtGui/QPainter>
+	<QtGui/QPaintEvent>
+	<QtGui/QMouseEvent>
+	<QtGui/QWheelEvent>
+	<QtGui/QPixmap>
+	<QtCore/QVector>
+	<QtCore/QString>
+	<QtCore/QDateTime>
+	<QtCore/QMultiMap>
+	<QtCore/QFlags>
+	<QtCore/QDebug>
+	<QtCore/QStack>
+	<QtCore/QCache>
+	<QtCore/QMargins>
+	<qmath.h>
+	<limits>
+	<algorithm>
+	<QtGui/QOpenGLContext>
+	<QtGui/QOpenGLFramebufferObject>
+	<QtGui/QOffscreenSurface>
+	<QtGui/QWindow>
+	<QtOpenGL/QGLPixelBuffer>
+	<qnumeric.h>
+	<QtGui/QWidget>
+	<QtGui/QPrinter>
+	<QtGui/QPrintEngine>
+	<QtNumeric>
+	<QtWidgets/QWidget>
+	<QtPrintSupport/QtPrintSupport>
 
