@@ -58,8 +58,8 @@ int MinLenghtProblem::SimpleSolution(int node_pair[2])
             if(new_min < minimal)
             {
                 minimal = new_min;
-                node_pair[0] = nodelist[i];
-                node_pair[1] = nodelist[j];
+                node_pair[0] = nodelist[i] + 1;
+                node_pair[1] = nodelist[j] + 1;
             }
         }
     }
@@ -68,12 +68,35 @@ int MinLenghtProblem::SimpleSolution(int node_pair[2])
 
 int MinLenghtProblem::DCSolution(int node_pair[2])
 {
+    map<int, map<int, int> > Dmatrix = G.get_matrix();
+    int numnodes = G.get_numNodes();
 
+    return DCSolution(Dmatrix, numnodes, node_pair);
 }
 
-int MinLenghtProblem::DCSolution()
-{
 
+int MinLenghtProblem::DCSolution(map<int, map<int, int> > &matrix, int numnodes, int node_pair[2])
+{
+    int min = 99999999;
+
+    for(int j = 0; j < numnodes; j++){
+        map<int, int>::iterator it = matrix[j].begin();
+
+        int newmin = it->second;
+
+        while(newmin == 0){
+            it++;
+            newmin = it -> second;
+        }
+
+        if(newmin < min){
+            min = newmin;
+            node_pair[0] = j+1;
+            node_pair[1] = it -> first + 1;
+        }
+    }
+
+    return min;
 }
 
 

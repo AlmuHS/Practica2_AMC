@@ -33,7 +33,6 @@ void Test_MLP::RandomDemo(int n_nodes){
         <<"The minimal lenght points are: "<<node_pair1[0]<<" and "<<node_pair1[1]<<endl
         <<"The minimal lenght is "<<minimal_lenght<<endl<<endl;
 
-    GenG->SortGraph();
     MLP.set_graph(GenG->getGraph());
     minimal_lenght = MLP.DCSolution(node_pair2);
 
@@ -65,7 +64,6 @@ void Test_MLP::TestFile(string file, int method){
             <<"The minimal lenght is "<<solution<<endl<<endl;
     }
     else{
-        GenG->SortGraph();
         MLP.set_graph(GenG->getGraph());
         solution = MLP.DCSolution(node_pair);
 
@@ -74,8 +72,8 @@ void Test_MLP::TestFile(string file, int method){
 
         GenG->show_graph();
 
-        cout<<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl
-            <<"The minimal lenght is "<<solution<<endl<<endl;
+        //cout<<"The minimal lenght points are: "<<node_pair[0]<<" and "<<node_pair[1]<<endl
+        cout<<"The minimal lenght is "<<solution<<endl<<endl;
     }
 
     delete GenG;

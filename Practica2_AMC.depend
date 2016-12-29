@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1482876960 source:/home/almu/Practica2_AMC/src/GenGraph.cpp
+1482969130 source:/home/almu/Practica2_AMC/src/GenGraph.cpp
 	"../include/GenGraph.h"
 
-1481317622 source:/home/almu/Practica2_AMC/src/Graph.cpp
+1482944227 source:/home/almu/Practica2_AMC/src/Graph.cpp
 	"../include/Graph.h"
 
 1481501144 source:/home/almu/Practica2_AMC/main.cpp
@@ -10,7 +10,7 @@
 	<iostream>
 	"include/Menu.h"
 
-1482883943 /home/almu/Practica2_AMC/include/GenGraph.h
+1482969130 /home/almu/Practica2_AMC/include/GenGraph.h
 	<iostream>
 	<utility>
 	<vector>
@@ -18,7 +18,7 @@
 	<fstream>
 	<algorithm>
 
-1482611692 /home/almu/Practica2_AMC/include/Graph.h
+1482889171 /home/almu/Practica2_AMC/include/Graph.h
 	<map>
 	<set>
 	<vector>
@@ -27,7 +27,7 @@
 	<set>
 	<cmath>
 
-1482882904 /home/almu/Practica2_AMC/include/MinLenghtProblem.h
+1482969837 /home/almu/Practica2_AMC/include/MinLenghtProblem.h
 	<istream>
 	<iostream>
 	<cmath>
@@ -35,8 +35,9 @@
 	"Graph.h"
 	"GenGraph.h"
 	<ctime>
+	<algorithm>
 
-1482866231 source:/home/almu/Practica2_AMC/src/MinLenghtProblem.cpp
+1482969837 source:/home/almu/Practica2_AMC/src/MinLenghtProblem.cpp
 	"../include/MinLenghtProblem.h"
 
 1481416928 /home/almu/Practica2_AMC/include/QuickSort.h
@@ -67,7 +68,7 @@
 1481500799 /home/almu/Practica2_AMC/include/Test_TSP.h
 	"TSPProblem.h"
 
-1482863285 source:/home/almu/Practica2_AMC/src/Test_MLP.cpp
+1482969361 source:/home/almu/Practica2_AMC/src/Test_MLP.cpp
 	"../include/Test_MLP.h"
 
 1481569393 source:/home/almu/Practica2_AMC/src/Test_TSP.cpp

@@ -66,26 +66,15 @@ public:
 	//Generates a new graph from a input nodes file
     void GenGraphFromFile();
 
-	//Sort nodelist using x coordinates from lowest to highest
-    void xSort_nodelist();
-
 	//Return Graph
     Graph getGraph();
-
-	/*Sort an already generated graph using x coordinates
-	From lowest to highest*/
-    void SortGraph();
 
 	//Generates a new fully random graph
     void Generate_graph(int numnodes);
 
-	//Generate a new random Graph, previously sorting nodelist
-    void Generate_XSortedGraph();
-
 	//Show node list in screen
     void show_graph();
 
-    vector<pair<float, float> > getPairList();
 };
 
 #endif // GENGRAPH_H

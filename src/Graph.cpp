@@ -52,5 +52,9 @@ vector<int> Graph::get_NodeList(){
     return node_list;
 }
 
+map<int, map<int,int> > Graph::get_matrix(){
+    return adjacency_matrix;
+}
+
 
 

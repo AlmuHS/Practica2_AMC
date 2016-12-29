@@ -70,16 +70,6 @@ void GenGraph::create_graph(){
 }
 
 
-void GenGraph::xSort_nodelist(){
-    sort(node_list.begin(), node_list.end());
-}
-
-void GenGraph::SortGraph(){
-    xSort_nodelist();
-    create_graph();
-}
-
-
 void GenGraph::Generate_graph(int numnodes)
 {
     pair<float, float> n1;
@@ -94,25 +84,6 @@ void GenGraph::Generate_graph(int numnodes)
         add_pair(n1);
     }
 
-    create_graph();
-}
-
-void GenGraph::Generate_XSortedGraph()
-{
-    pair<float, float> n1;
-    cout<<"pos x\tpos y"<<endl;
-
-    for(int i = 0; i < 5; i++)
-    {
-        n1.first = log10(rand());
-        n1.second = sqrt(rand()/20);
-
-        cout<<n1.first<<"\t"<<n1.second<<"\t\t"<<endl;
-
-        add_pair(n1);
-    }
-
-    xSort_nodelist();
     create_graph();
 }
 
@@ -150,6 +121,3 @@ void GenGraph::show_graph(){
     }
 }
 
-vector<pair<float, float> > GenGraph::getPairList(){
-     return node_list;
-}

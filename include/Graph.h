@@ -50,10 +50,10 @@ class Graph
 	 *Includes a parameter to set initial capacity, setted by default to 100 positions
 	 */
         Graph(int capacity = 100);
-	
+
 	//Copy constructor
         Graph(const Graph &G);
-	
+
 	//Insert new node in the Graph
         void add_node(int n1);
 
@@ -68,6 +68,8 @@ class Graph
 
 	//Get graph's node list
         vector<int> get_NodeList();
+
+        map<int, map<int,int> > get_matrix();
 };
 
 #endif // GRAPH_H

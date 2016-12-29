@@ -33,6 +33,7 @@
 #include "Graph.h"
 #include "GenGraph.h"
 #include <ctime>
+#include <algorithm>
 
 class MinLenghtProblem
 {
@@ -57,7 +58,7 @@ public:
     int DCSolution(int node_pair[2]);
 
 	//Recursive method to DC algorithm
-    int DCSolution();
+    int DCSolution(map<int, map<int, int> > &matrix, int numnodes, int node_pair[2]);
 
 };
 
