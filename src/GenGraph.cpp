@@ -21,11 +21,11 @@
 
 using namespace std;
 
-GenGraph::GenGraph(string file_n): file(file_n.c_str(), ios::in)
+GenGraph::GenGraph(string file_n, int capacity): file(file_n.c_str(), ios::in)
 {
     //ctor
     file_name = file_n;
-    G = new Graph;
+    G = new Graph(capacity);
 }
 
 GenGraph::~GenGraph(){

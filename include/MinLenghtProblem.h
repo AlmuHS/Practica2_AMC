@@ -43,7 +43,7 @@ private:
 
 public:
 	//Constructor
-    MinLenghtProblem();
+    MinLenghtProblem(int capacity);
 
 	//Destructor
     ~MinLenghtProblem();
@@ -56,9 +56,6 @@ public:
 
 	//Main method to recursive DC algorithm
     int DCSolution(int node_pair[2]);
-
-	//Recursive method to DC algorithm
-    int DCSolution(map<int, map<int, int> > &matrix, int numnodes, int node_pair[2]);
 
 };
 

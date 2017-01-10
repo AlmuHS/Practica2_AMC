@@ -49,7 +49,7 @@ class GenGraph
 
 public:
 	//Constructor
-    GenGraph(string file_n = "");
+    GenGraph(string file_n = "", int capacity = 100);
 
 	//Destructor
     ~GenGraph();

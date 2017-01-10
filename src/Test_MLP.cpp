@@ -7,7 +7,7 @@
 using namespace std;
 using namespace std::chrono;
 
-Test_MLP::Test_MLP()
+Test_MLP::Test_MLP(): MLP(5000)
 {
     //ctor
 }
@@ -18,7 +18,7 @@ void Test_MLP::set_numnodes(int n_nodes){
 
 
 void Test_MLP::RandomDemo(int n_nodes){
-    GenGraph *GenG = new GenGraph;
+    GenGraph *GenG = new GenGraph("", n_nodes);
     long minimal_lenght;
     int node_pair1[2], node_pair2[2];
 
@@ -50,7 +50,7 @@ void Test_MLP::RandomDemo(int n_nodes){
 void Test_MLP::TestFile(string file, int method){
     int node_pair[2];
     int solution;
-    GenGraph *GenG = new GenGraph(file);
+    GenGraph *GenG = new GenGraph(file, 1000);
 
     GenG->GenGraphFromFile();
 
@@ -135,7 +135,6 @@ double Test_MLP::Search(const Graph &G, int method){
 void Test_MLP::BestCase(int method){
     GenGraph *GenG;
     pair<float, float> p;
-    int solution[2];
     double seconds, time;
     vector<double> time_list;
     char option;
@@ -153,7 +152,7 @@ void Test_MLP::BestCase(int method){
 
 
         for(int i = 0; i < REPEAT; i++){
-            GenG = new GenGraph;
+            GenG = new GenGraph("", numnodes);
 
             p.first = 0.5;
             p.second = 1.2;
@@ -201,7 +200,6 @@ void Test_MLP::BestCase(int method){
 
 void Test_MLP::MediumCase(int method){
     GenGraph *GenG;
-    int solution[2];
     double seconds, time;
     vector<double> time_list;
     char option;
@@ -217,7 +215,7 @@ void Test_MLP::MediumCase(int method){
 
 
         for(int i = 0; i < REPEAT; i++){
-            GenG = new GenGraph;
+            GenG = new GenGraph("",numnodes);
 
             GenG->Generate_graph(numnodes);
             seconds = Search(GenG->getGraph(), method);
@@ -254,7 +252,6 @@ void Test_MLP::MediumCase(int method){
 
 void Test_MLP::WorstCase(int method){
     GenGraph *GenG;
-    int solution[2];
     pair<float, float> p;
     double seconds, time;
     vector<double> time_list;
@@ -270,7 +267,7 @@ void Test_MLP::WorstCase(int method){
         else if(j == 3) numnodes = 5000;
 
         for(int i = 0; i < REPEAT; i++){
-            GenG = new GenGraph;
+            GenG = new GenGraph("",numnodes);
 
             GenG->Generate_graph(numnodes - 2);
 

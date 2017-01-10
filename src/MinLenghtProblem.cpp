@@ -20,10 +20,10 @@
 
 using namespace std;
 
-MinLenghtProblem::MinLenghtProblem()
+MinLenghtProblem::MinLenghtProblem(int capacity): G(capacity)
 {
     srand(time(0));
-    GenG = new GenGraph;
+    GenG = new GenGraph("", capacity);
 }
 
 MinLenghtProblem::~MinLenghtProblem()
@@ -68,37 +68,38 @@ int MinLenghtProblem::SimpleSolution(int node_pair[2])
 
 int MinLenghtProblem::DCSolution(int node_pair[2])
 {
-    map<int, map<int, int> > Dmatrix = G.get_matrix();
+    int row = 0;
+    vector<vector<int> > matrix = G.get_matrix();
+    vector<vector<int> > copy_matrix = matrix;
     int numnodes = G.get_numNodes();
 
-    return DCSolution(Dmatrix, numnodes, node_pair);
-}
+    //Sort matrix row to row
+    for(int i = 0; i < numnodes; i++){
+        sort(matrix[i].begin(), matrix[i].end());
+    }
 
+    int minimal = 999999;
 
-int MinLenghtProblem::DCSolution(map<int, map<int, int> > &matrix, int numnodes, int node_pair[2])
-{
-    int min = 99999999;
-
-    for(int j = 0; j < numnodes; j++){
-        map<int, int>::iterator it = matrix[j].begin();
-
-        int newmin = it->second;
-
-        while(newmin == 0){
-            it++;
-            newmin = it -> second;
-        }
-
-        if(newmin < min){
-            min = newmin;
-            node_pair[0] = j+1;
-            node_pair[1] = it -> first + 1;
+    //Search the minimal element in the first column
+    for(int j= 0; j < numnodes; j++){
+        if(matrix[j][0] < minimal){
+            minimal = matrix[j][0];
+            row = j;
         }
     }
 
-    return min;
-}
+    //Set the first node position to minimal row value
+    node_pair[0] = row + 1;
 
+    //Search the second node position in the original matrix, using first node position and minimal length value
+    for(int k = 0; k < numnodes; k++){
+        if(copy_matrix[row][k] == minimal){
+            node_pair[1] = k + 1;
+        }
+    }
+
+    return minimal;
+}
 
 
 

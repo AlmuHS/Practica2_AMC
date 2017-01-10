@@ -17,7 +17,7 @@
 
 #include "../include/Graph.h"
 
-Graph::Graph(int capacity)
+Graph::Graph(int capacity): adjacency_matrix(capacity, vector<int>(capacity, 99999))
 {
     maxNodes = capacity;
     numNodes = 0;
@@ -52,7 +52,7 @@ vector<int> Graph::get_NodeList(){
     return node_list;
 }
 
-map<int, map<int,int> > Graph::get_matrix(){
+vector<vector<int> > Graph::get_matrix(){
     return adjacency_matrix;
 }
 

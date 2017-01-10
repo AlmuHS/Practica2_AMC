@@ -24,7 +24,6 @@
 #define GRAPH_H
 
 #include<vector>
-#include<map>
 #include<set>
 #include<cmath>
 
@@ -42,7 +41,7 @@ class Graph
         int numNodes;//Current number of nodes
         int maxNodes;//Maximal number of nodes in the Graph
 
-        map<int, map<int,int> > adjacency_matrix;//Distance matrix
+        vector<vector<int> > adjacency_matrix;//Distance matrix
         vector<int> node_list;
 
     public:
@@ -69,7 +68,7 @@ class Graph
 	//Get graph's node list
         vector<int> get_NodeList();
 
-        map<int, map<int,int> > get_matrix();
+        vector<vector<int> > get_matrix();
 };
 
 #endif // GRAPH_H

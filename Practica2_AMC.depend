@@ -1,16 +1,16 @@
 # depslib dependency file v1.0
-1482969130 source:/home/almu/Practica2_AMC/src/GenGraph.cpp
+1483967540 source:/home/almu/Practica2_AMC/src/GenGraph.cpp
 	"../include/GenGraph.h"
 
-1482944227 source:/home/almu/Practica2_AMC/src/Graph.cpp
+1484089066 source:/home/almu/Practica2_AMC/src/Graph.cpp
 	"../include/Graph.h"
 
-1481501144 source:/home/almu/Practica2_AMC/main.cpp
+1483385528 source:/home/almu/Practica2_AMC/main.cpp
 	<istream>
 	<iostream>
 	"include/Menu.h"
 
-1482969130 /home/almu/Practica2_AMC/include/GenGraph.h
+1483968499 /home/almu/Practica2_AMC/include/GenGraph.h
 	<iostream>
 	<utility>
 	<vector>
@@ -18,16 +18,15 @@
 	<fstream>
 	<algorithm>
 
-1482889171 /home/almu/Practica2_AMC/include/Graph.h
+1484077870 /home/almu/Practica2_AMC/include/Graph.h
 	<map>
 	<set>
 	<vector>
 	<vector>
-	<map>
 	<set>
 	<cmath>
 
-1482969837 /home/almu/Practica2_AMC/include/MinLenghtProblem.h
+1484088264 /home/almu/Practica2_AMC/include/MinLenghtProblem.h
 	<istream>
 	<iostream>
 	<cmath>
@@ -37,27 +36,26 @@
 	<ctime>
 	<algorithm>
 
-1482969837 source:/home/almu/Practica2_AMC/src/MinLenghtProblem.cpp
+1484091337 source:/home/almu/Practica2_AMC/src/MinLenghtProblem.cpp
 	"../include/MinLenghtProblem.h"
 
-1481416928 /home/almu/Practica2_AMC/include/QuickSort.h
+1484085173 /home/almu/Practica2_AMC/include/QuickSort.h
 	<algorithm>
 	<vector>
-	<utility>
 
-1481416788 source:/home/almu/Practica2_AMC/src/QuickSort.cpp
-	"../include/QuickSort.h"
+1483965589 source:/home/almu/Practica2_AMC/src/QuickSort.cpp
+	"QuickSort.h"
 
-1481572716 source:/home/almu/Practica2_AMC/src/TSPProblem.cpp
+1483385528 source:/home/almu/Practica2_AMC/src/TSPProblem.cpp
 	"../include/TSPProblem.h"
 
-1481572698 /home/almu/Practica2_AMC/include/TSPProblem.h
+1483385528 /home/almu/Practica2_AMC/include/TSPProblem.h
 	"Graph.h"
 	"GenGraph.h"
 	<set>
 	<queue>
 
-1482354243 /home/almu/Practica2_AMC/include/Test_MLP.h
+1484084100 /home/almu/Practica2_AMC/include/Test_MLP.h
 	<ctime>
 	<chrono>
 	"GenGraph.h"
@@ -65,27 +63,27 @@
 	"Mtime.h"
 	"Mtime.h"
 
-1481500799 /home/almu/Practica2_AMC/include/Test_TSP.h
+1483385528 /home/almu/Practica2_AMC/include/Test_TSP.h
 	"TSPProblem.h"
 
-1482969361 source:/home/almu/Practica2_AMC/src/Test_MLP.cpp
+1484084607 source:/home/almu/Practica2_AMC/src/Test_MLP.cpp
 	"../include/Test_MLP.h"
 
-1481569393 source:/home/almu/Practica2_AMC/src/Test_TSP.cpp
+1483385528 source:/home/almu/Practica2_AMC/src/Test_TSP.cpp
 	"../include/Test_TSP.h"
 
-1481500799 /home/almu/Practica2_AMC/include/Mtime.h
+1483385528 /home/almu/Practica2_AMC/include/Mtime.h
 	<stdio.h>
 	<ctime>
 	<windows.h>
 
-1481500799 source:/home/almu/Practica2_AMC/src/Mtime.cpp
+1483385528 source:/home/almu/Practica2_AMC/src/Mtime.cpp
 	"../include/Mtime.h"
 
-1482176804 source:/home/almu/Practica2_AMC/src/Menu.cpp
+1484083111 source:/home/almu/Practica2_AMC/src/Menu.cpp
 	"../include/Menu.h"
 
-1482176334 /home/almu/Practica2_AMC/include/Menu.h
+1484083111 /home/almu/Practica2_AMC/include/Menu.h
 	"Test_MLP.h"
 	"Test_TSP.h"
 	<windows.h>
@@ -127,4 +125,12 @@
 	<QtNumeric>
 	<QtWidgets/QWidget>
 	<QtPrintSupport/QtPrintSupport>
+
+1484087715 /home/almu/Practica2_AMC/include/HeapSort.h
+	<algorithm>
+	<iterator>
+	<iostream>
+
+1484087750 source:/home/almu/Practica2_AMC/src/HeapSort.cpp
+	"../include/HeapSort.h"
 
