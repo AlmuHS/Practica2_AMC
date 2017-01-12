@@ -2,7 +2,7 @@
 
 #define DC 2
 #define SIMPLE 1
-#define REPEAT 7
+#define REPEAT 10
 
 using namespace std;
 using namespace std::chrono;

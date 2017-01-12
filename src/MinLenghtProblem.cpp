@@ -70,21 +70,17 @@ int MinLenghtProblem::DCSolution(int node_pair[2])
 {
     int row = 0;
     vector<vector<int> > matrix = G.get_matrix();
-    vector<vector<int> > copy_matrix = matrix;
-    int numnodes = G.get_numNodes();
-
-    //Sort matrix row to row
-    for(int i = 0; i < numnodes; i++){
-        sort(matrix[i].begin(), matrix[i].end());
-    }
-
+    vector<vector<int> > copy_matrix = G.get_matrix();
+    size_t numnodes = matrix[0].size();
     int minimal = 999999;
 
-    //Search the minimal element in the first column
-    for(int j= 0; j < numnodes; j++){
-        if(matrix[j][0] < minimal){
-            minimal = matrix[j][0];
-            row = j;
+    //Sort matrix row to row
+    for(size_t i = 0; i+1 < numnodes; i++){
+        std::sort(matrix[i].begin()+i+1, matrix[i].end());
+
+        if(matrix[i][i+1] < minimal){
+            minimal = matrix[i][i+1];
+            row = i;
         }
     }
 
@@ -92,10 +88,15 @@ int MinLenghtProblem::DCSolution(int node_pair[2])
     node_pair[0] = row + 1;
 
     //Search the second node position in the original matrix, using first node position and minimal length value
-    for(int k = 0; k < numnodes; k++){
-        if(copy_matrix[row][k] == minimal){
-            node_pair[1] = k + 1;
+    if((unsigned) row < numnodes - 1){
+        for(size_t k = row; k < numnodes; k++){
+            if(copy_matrix[row][k] == minimal){
+                node_pair[1] = k + 1;
+            }
         }
+    }
+    else{
+        node_pair[1] = numnodes - 1;
     }
 
     return minimal;

@@ -26,7 +26,7 @@
 	<set>
 	<cmath>
 
-1484088264 /home/almu/Practica2_AMC/include/MinLenghtProblem.h
+1484215304 /home/almu/Practica2_AMC/include/MinLenghtProblem.h
 	<istream>
 	<iostream>
 	<cmath>
@@ -36,7 +36,7 @@
 	<ctime>
 	<algorithm>
 
-1484091337 source:/home/almu/Practica2_AMC/src/MinLenghtProblem.cpp
+1484219020 source:/home/almu/Practica2_AMC/src/MinLenghtProblem.cpp
 	"../include/MinLenghtProblem.h"
 
 1484085173 /home/almu/Practica2_AMC/include/QuickSort.h
@@ -66,7 +66,7 @@
 1483385528 /home/almu/Practica2_AMC/include/Test_TSP.h
 	"TSPProblem.h"
 
-1484084607 source:/home/almu/Practica2_AMC/src/Test_MLP.cpp
+1484219834 source:/home/almu/Practica2_AMC/src/Test_MLP.cpp
 	"../include/Test_MLP.h"
 
 1483385528 source:/home/almu/Practica2_AMC/src/Test_TSP.cpp
@@ -133,4 +133,10 @@
 
 1484087750 source:/home/almu/Practica2_AMC/src/HeapSort.cpp
 	"../include/HeapSort.h"
+
+1484212362 /home/almu/Practica2_AMC/include/Sort.h
+	<vector>
+
+1484212378 source:/home/almu/Practica2_AMC/src/Sort.cpp
+	"Sort.h"
 
