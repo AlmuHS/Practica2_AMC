@@ -1,6 +1,6 @@
 #include "../include/Test_TSP.h"
 
-Test_TSP::Test_TSP()
+Test_TSP::Test_TSP():TSP(1000)
 {
     //ctor
 }
@@ -10,7 +10,7 @@ void Test_TSP::TestRandom(int numnodes, int method){
     long min_distance;
     ofstream fout;
 
-    GenGraph *GenG = new GenGraph;
+    GenGraph *GenG = new GenGraph("", numnodes);
     GenG->Generate_graph(numnodes);
 
     GenG->show_graph();
@@ -48,7 +48,7 @@ void Test_TSP::TestFile(string file, int method){
     string froute = file + "_route";
     ofstream fout;
 
-    GenGraph *GenG = new GenGraph(file);
+    GenGraph *GenG = new GenGraph(file, 1000);
     GenG->GenGraphFromFile();
     TSP.setGraph(GenG->getGraph());
     TSP.GenSet();

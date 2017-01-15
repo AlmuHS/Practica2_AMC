@@ -37,7 +37,7 @@ class TSPProblem
     vector<int> node_vector;
     queue<int> solution_queue;
     public:
-        TSPProblem();
+        TSPProblem(int capacity);
         void GenSet();
         void setGraph(const Graph &G);
         queue<int> get_solution();

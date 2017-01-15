@@ -51,11 +51,13 @@ public:
 	//set a graph from parameter
     void set_graph(const Graph &G);
 
+    vector<vector<int> > SortGraph();
+
 	//Execute exhaustive MLP algorithm
     int SimpleSolution(int node_pair[2]);
 
 	//Main method to recursive DC algorithm
-    int DCSolution(int node_pair[2]);
+    int DCSolution(vector<vector<int> > sortedmatrix, int node_pair[2]);
 
 };
 

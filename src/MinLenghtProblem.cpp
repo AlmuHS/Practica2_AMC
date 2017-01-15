@@ -36,7 +36,18 @@ void MinLenghtProblem::set_graph(const Graph &G)
     this->G = G;
 }
 
+vector<vector<int> > MinLenghtProblem::SortGraph(){
+    vector<vector<int> > matrix = G.get_matrix();
 
+    size_t numnodes = matrix[0].size();
+
+    //Sort matrix row to row
+    for(size_t i = 0; i+1 < numnodes; i++){
+        std::sort(matrix[i].begin()+i+1, matrix[i].end());
+    }
+
+    return matrix;
+}
 
 
 int MinLenghtProblem::SimpleSolution(int node_pair[2])
@@ -66,20 +77,17 @@ int MinLenghtProblem::SimpleSolution(int node_pair[2])
     return minimal;
 }
 
-int MinLenghtProblem::DCSolution(int node_pair[2])
+int MinLenghtProblem::DCSolution(vector<vector<int> > sortedmatrix, int node_pair[2])
 {
     int row = 0;
-    vector<vector<int> > matrix = G.get_matrix();
     vector<vector<int> > copy_matrix = G.get_matrix();
-    size_t numnodes = matrix[0].size();
+    size_t numnodes = sortedmatrix[0].size();
     int minimal = 999999;
 
-    //Sort matrix row to row
+    //Search minimal element from sortedmatrix
     for(size_t i = 0; i+1 < numnodes; i++){
-        std::sort(matrix[i].begin()+i+1, matrix[i].end());
-
-        if(matrix[i][i+1] < minimal){
-            minimal = matrix[i][i+1];
+        if(sortedmatrix[i][i+1] < minimal){
+            minimal = sortedmatrix[i][i+1];
             row = i;
         }
     }

@@ -34,7 +34,8 @@ void Test_MLP::RandomDemo(int n_nodes){
         <<"The minimal lenght is "<<minimal_lenght<<endl<<endl;
 
     MLP.set_graph(GenG->getGraph());
-    minimal_lenght = MLP.DCSolution(node_pair2);
+    vector<vector<int> > sortedMatrix = MLP.SortGraph();
+    minimal_lenght = MLP.DCSolution(sortedMatrix, node_pair2);
 
     cout<<"Divide and Conquer solution"<<endl
         <<"----------------------------"<<endl;
@@ -65,7 +66,10 @@ void Test_MLP::TestFile(string file, int method){
     }
     else{
         MLP.set_graph(GenG->getGraph());
-        solution = MLP.DCSolution(node_pair);
+        vector<vector<int> > sortedMatrix = MLP.SortGraph();
+
+        solution = MLP.DCSolution(sortedMatrix, node_pair);
+
 
         cout<<"Divide and Conquer solution"<<endl
             <<"----------------------------"<<endl;
@@ -89,6 +93,7 @@ double Test_MLP::Search(const Graph &G, int method){
     int solution[2];
 
     MLP.set_graph(G);
+    vector<vector<int> > sortedMatrix = MLP.SortGraph();
 
 
     if(method == SIMPLE){
@@ -98,7 +103,7 @@ double Test_MLP::Search(const Graph &G, int method){
     }
     else{
         QueryPerformanceCounter(&t_ini);
-        MLP.DCSolution(solution);
+        MLP.DCSolution(sortedMatrix, solution);
         QueryPerformanceCounter(&t_fin);
     }
 
@@ -113,6 +118,8 @@ double Test_MLP::Search(const Graph &G, int method){
     high_resolution_clock::time_point t_ini, t_fin;
 
     MLP.set_graph(G);
+    vector<vector<int> > sortedMatrix = MLP.SortGraph();
+
 
     if(method == SIMPLE){
         t_ini = high_resolution_clock::now();
@@ -121,7 +128,7 @@ double Test_MLP::Search(const Graph &G, int method){
     }
     else{
         t_ini = high_resolution_clock::now();
-        MLP.DCSolution(solution);
+        MLP.DCSolution(sortedMatrix, solution);
         t_fin = high_resolution_clock::now();
     }
 

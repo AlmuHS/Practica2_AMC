@@ -20,7 +20,7 @@
 
 using namespace std;
 
-TSPProblem::TSPProblem()
+TSPProblem::TSPProblem(int capacity):G(capacity), GenG("", capacity)
 {
     //ctor
 
