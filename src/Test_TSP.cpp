@@ -10,7 +10,7 @@ void Test_TSP::TestRandom(int numnodes, int method){
     long min_distance;
     ofstream fout;
 
-    GenGraph *GenG = new GenGraph("", numnodes);
+    GenGraph *GenG = new GenGraph("", numnodes*2);
     GenG->Generate_graph(numnodes);
 
     GenG->show_graph();

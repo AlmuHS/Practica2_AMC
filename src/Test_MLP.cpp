@@ -7,7 +7,7 @@
 using namespace std;
 using namespace std::chrono;
 
-Test_MLP::Test_MLP(): MLP(5000)
+Test_MLP::Test_MLP(): MLP(1000)
 {
     //ctor
 }
@@ -18,7 +18,7 @@ void Test_MLP::set_numnodes(int n_nodes){
 
 
 void Test_MLP::RandomDemo(int n_nodes){
-    GenGraph *GenG = new GenGraph("", n_nodes);
+    GenGraph *GenG = new GenGraph("", n_nodes*2);
     long minimal_lenght;
     int node_pair1[2], node_pair2[2];
 
@@ -106,7 +106,6 @@ double Test_MLP::Search(const Graph &G, int method){
         MLP.DCSolution(sortedMatrix, solution);
         QueryPerformanceCounter(&t_fin);
     }
-
     return (counter.performancecounter_diff(&t_fin, &t_ini)*1000);
 }
 
@@ -159,7 +158,7 @@ void Test_MLP::BestCase(int method){
 
 
         for(int i = 0; i < REPEAT; i++){
-            GenG = new GenGraph("", numnodes);
+            GenG = new GenGraph("", numnodes*2);
 
             p.first = 0.5;
             p.second = 1.2;
@@ -222,7 +221,7 @@ void Test_MLP::MediumCase(int method){
 
 
         for(int i = 0; i < REPEAT; i++){
-            GenG = new GenGraph("",numnodes);
+            GenG = new GenGraph("",numnodes*2);
 
             GenG->Generate_graph(numnodes);
             seconds = Search(GenG->getGraph(), method);
@@ -274,7 +273,7 @@ void Test_MLP::WorstCase(int method){
         else if(j == 3) numnodes = 5000;
 
         for(int i = 0; i < REPEAT; i++){
-            GenG = new GenGraph("",numnodes);
+            GenG = new GenGraph("",numnodes*2);
 
             GenG->Generate_graph(numnodes - 2);
 

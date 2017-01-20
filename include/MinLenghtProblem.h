@@ -57,7 +57,7 @@ public:
     int SimpleSolution(int node_pair[2]);
 
 	//Main method to recursive DC algorithm
-    int DCSolution(vector<vector<int> > sortedmatrix, int node_pair[2]);
+    int DCSolution(vector<vector<int> > &sortedmatrix, int node_pair[2]);
 
 };
 

@@ -77,11 +77,11 @@ int MinLenghtProblem::SimpleSolution(int node_pair[2])
     return minimal;
 }
 
-int MinLenghtProblem::DCSolution(vector<vector<int> > sortedmatrix, int node_pair[2])
+int MinLenghtProblem::DCSolution(vector<vector<int> > &sortedmatrix, int node_pair[2])
 {
     int row = 0;
     vector<vector<int> > copy_matrix = G.get_matrix();
-    size_t numnodes = sortedmatrix[0].size();
+    size_t numnodes = G.get_numNodes();
     int minimal = 999999;
 
     //Search minimal element from sortedmatrix
